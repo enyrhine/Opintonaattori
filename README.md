@@ -1,0 +1,2 @@
+# opinnot
+Opintojen seurantajärjestelmä
