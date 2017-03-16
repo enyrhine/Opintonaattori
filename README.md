@@ -1,2 +1,3 @@
 # Opintonaattori
-Opintojen seurantajärjestelmä
+Opintojen seurantajärjestelmä. Henkilökohtaiseen opintojen seurantaan.
+
