@@ -1,2 +1,2 @@
-# opinnot
+# Opintonaattori
 Opintojen seurantajärjestelmä
