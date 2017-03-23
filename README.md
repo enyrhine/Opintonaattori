@@ -6,3 +6,4 @@ Näin pystyt helposti seuraamaan opintojasi vaikka suorittaisit päällekäin ka
 
 ## Dokumentaatio
 * [Linkki aihekuvaukseen](https://github.com/enyrhine/Opintonaattori/blob/master/dokumentaatio/aiheenKuvausJaRakenne.md)
+* [Linkki aihekuvaukseen](https://github.com/enyrhine/Opintonaattori/blob/master/dokumentaatio/tuntikirjanpito.md)
