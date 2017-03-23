@@ -5,3 +5,4 @@ Ohjelma näyttää sinulle suorittamasi kurssit, laskee niiden arvosanoista kesk
 Näin pystyt helposti seuraamaan opintojasi vaikka suorittaisit päällekäin kandi- ja maisterivaiheen kursseja.
 
 ## Dokumentaatio
+* [Linkki aihekuvaukseen](https://github.com/enyrhine/Opintonaattori/blob/master/dokumentaatio/aiheenKuvausJaRakenne.md)
