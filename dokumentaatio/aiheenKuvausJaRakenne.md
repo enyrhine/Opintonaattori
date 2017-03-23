@@ -4,4 +4,4 @@ Opintojen seurantajärjestelmä, jonka avulla opiskelija pystyy seuraamaan opisk
 ### Opiskelijan toiminnot: 
 kurssin ja sen tietojen lisäys
 
-![Alt text](Opintonaattori/Java_luokkakaavio.png "Luokkakaavio")
+![Alt text](Opintonaattori/Java_luokkakavio.png "Luokkakaavio")
