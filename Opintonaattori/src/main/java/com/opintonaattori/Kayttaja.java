@@ -1,5 +1,6 @@
 package com.opintonaattori;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,10 +8,12 @@ public class Kayttaja {
 
     private String nimi;
     private List<Kurssisuoritus> kurssisuoritukset;
+    private File tiedosto;
 
     public Kayttaja(String nimi) {
         this.nimi = nimi;
         this.kurssisuoritukset = new ArrayList();
+        this.tiedosto = new File(nimi);
     }
 
     public void lisaaKurssisuoritus(String nimi, int op, int arvosana) {
@@ -30,6 +33,10 @@ public class Kayttaja {
 
     public List getKurssit() {
         return this.kurssisuoritukset;
+    }
+    
+    public File getTiedosto() {
+        return this.tiedosto;
     }
 
 //    public Kurssisuoritus getKurssisuoritus(Kurssisuoritus kurssi) {

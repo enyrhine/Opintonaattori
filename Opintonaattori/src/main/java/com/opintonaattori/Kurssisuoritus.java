@@ -42,4 +42,8 @@ public class Kurssisuoritus {
         this.op = op;
     }
     
+    public String getKurssisuoritus() {
+        return this.kurssi + "," + this.op + "," + this.arvosana;
+    }
+    
 }
