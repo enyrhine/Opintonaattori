@@ -1,6 +1,6 @@
 package com.opintonaattori.kayttoliittyma;
 
-import com.opintonaattori.Kayttaja;
+import com.opintonaattori.main.Kayttaja;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;

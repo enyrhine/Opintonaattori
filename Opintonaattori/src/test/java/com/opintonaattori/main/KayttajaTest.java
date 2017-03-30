@@ -1,5 +1,7 @@
-package com.opintonaattori;
+package com.opintonaattori.main;
 
+import com.opintonaattori.main.Kayttaja;
+import java.io.IOException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -11,7 +13,7 @@ public class KayttajaTest {
 
     private Kayttaja testi;
 
-    public KayttajaTest() {
+    public KayttajaTest() throws IOException {
         this.testi = new Kayttaja("testi");
     }
 
@@ -31,18 +33,15 @@ public class KayttajaTest {
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
     @Test
-    public void konstruktoriAsettaaNimenOikein() {
+    public void konstruktoriAsettaaNimenOikein() throws IOException {
         Kayttaja kayttaja = new Kayttaja("Malla");
         String nimi = kayttaja.getNimi();
         assertEquals("Malla", nimi);
     }
 
     @Test
-    public void kurssisuorituksenLisaysOnnistuu() {
+    public void kurssisuorituksenLisaysOnnistuu() throws IOException {
         int kurssisuorituksiaAluksi = testi.getKurssit().size();
         testi.lisaaKurssisuoritus("Ohja", 5, 5);
         int kurssisuorituksiaLopuksi = testi.getKurssit().size();
@@ -50,7 +49,7 @@ public class KayttajaTest {
     }
     
     @Test
-    public void getKurssisuoritusByNameToimii() {
+    public void getKurssisuoritusByNameToimii() throws IOException {
         testi.lisaaKurssisuoritus("Ohja", 5, 5);
         testi.lisaaKurssisuoritus("Ohpe", 5, 5);
         String nimi = testi.getKurssisuoritusByName("Ohja");
@@ -58,7 +57,7 @@ public class KayttajaTest {
     }
     
     @Test
-    public void getKurssisuoritusByNameEiToimi() {
+    public void getKurssisuoritusByNameEiToimi() throws IOException {
         testi.lisaaKurssisuoritus("Tira", 5, 5);
         testi.lisaaKurssisuoritus("Ohpe", 5, 5);
         String nimi = testi.getKurssisuoritusByName("Ohja");
@@ -66,14 +65,6 @@ public class KayttajaTest {
     }
     
 //    @Test
-//    public void kurssisuorituksenLisaysOnnistuu() {
-//        testi.lisaaKurssisuoritus("Ohja", 5, 5);
-////        for (Kurssisuoritus nimi : testi.getKurssit()) {
-////            nimi
-////        }
-//        //Kurssisuoritus kurssi = testi.getKurssisuoritusByName("Ohja");
-//        //Kurssisuoritus kurssi = new Kurssisuoritus("Ohja", 5, 5);
-//        boolean vastaus = testi.getKurssit().contains(kurssi);
-//        assertEquals(true, vastaus);
-//    }
+//    public void 
+
 }

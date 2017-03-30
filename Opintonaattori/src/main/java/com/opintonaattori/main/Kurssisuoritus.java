@@ -1,4 +1,4 @@
-package com.opintonaattori;
+package com.opintonaattori.main;
 
 public class Kurssisuoritus {
 

@@ -1,5 +1,6 @@
-package com.opintonaattori;
+package com.opintonaattori.main;
 
+import com.opintonaattori.main.Kurssisuoritus;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

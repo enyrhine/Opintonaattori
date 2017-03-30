@@ -1,8 +1,11 @@
 
 package com.opintonaattori.kayttoliittyma;
-import com.opintonaattori.Kayttaja;
+import com.opintonaattori.main.Kayttaja;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTextArea;
 
 public class LisaysKuuntelija implements ActionListener {
@@ -17,7 +20,11 @@ public class LisaysKuuntelija implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        this.kayttaja.lisaaKurssisuoritus(this.lahde.getText(), 0, 0);
+        try {
+            this.kayttaja.lisaaKurssisuoritus(this.lahde.getText(), 0, 0);
+        } catch (IOException ex) {
+            Logger.getLogger(LisaysKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

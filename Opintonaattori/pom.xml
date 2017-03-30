@@ -17,6 +17,12 @@
             <version>4.12</version>
             <type>jar</type>
         </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
 
     <build>
@@ -35,10 +41,12 @@
                 <version>1.1.8</version>
                 <configuration>
                     <targetClasses>
-                        <param>com.opintonaattori*</param>
+                        <param>com.opintonaattori.main*</param>
+                        <param>com.opintonaattori.tiedosto*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>com.opintonaattori*</param>
+                        <param>com.opintonaattori.main*</param>
+                        <param>com.opintonaattori.tiedosto*</param>
                     </targetTests>
                 </configuration>
 

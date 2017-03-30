@@ -1,6 +1,8 @@
-package com.opintonaattori;
+package com.opintonaattori.main;
 
+import com.opintonaattori.tiedosto.Tallentaja;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,16 +11,19 @@ public class Kayttaja {
     private String nimi;
     private List<Kurssisuoritus> kurssisuoritukset;
     private File tiedosto;
+    private Tallentaja tallentaja;
 
-    public Kayttaja(String nimi) {
+    public Kayttaja(String nimi) throws IOException {
         this.nimi = nimi;
         this.kurssisuoritukset = new ArrayList();
         this.tiedosto = new File(nimi);
+        this.tallentaja = new Tallentaja(this.tiedosto);
     }
 
-    public void lisaaKurssisuoritus(String nimi, int op, int arvosana) {
+    public void lisaaKurssisuoritus(String nimi, int op, int arvosana) throws IOException {
         Kurssisuoritus kurssi = new Kurssisuoritus(nimi, op, arvosana);
         this.kurssisuoritukset.add(kurssi);
+        this.tallentaja.lisaaKurssisuoritus(kurssi);
     }
 
     public void printKurssit() {
@@ -39,12 +44,6 @@ public class Kayttaja {
         return this.tiedosto;
     }
 
-//    public Kurssisuoritus getKurssisuoritus(Kurssisuoritus kurssi) {
-//        if (this.kurssisuoritukset.contains(kurssi)) {
-//            return kurssi;
-//        }
-//        return null;
-//    }
     public String getKurssisuoritusByName(String nimi) {
         for (Kurssisuoritus kurssi : kurssisuoritukset) {
             if (kurssi.getNimi().equals(nimi)) {

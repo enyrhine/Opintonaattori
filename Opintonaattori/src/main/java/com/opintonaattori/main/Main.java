@@ -1,5 +1,5 @@
 
-package com.opintonaattori;
+package com.opintonaattori.main;
 
 import com.opintonaattori.kayttoliittyma.Kayttoliittyma;
 import com.opintonaattori.tiedosto.Tallentaja;
@@ -10,10 +10,10 @@ public class Main {
     
     public static void main(String[] args) throws IOException {
         Kayttaja elsa = new Kayttaja("Elsa");
-        Tallentaja elsanTallentaja = new Tallentaja(elsa.getTiedosto());
-        elsanTallentaja.lisaaKurssisuoritus("Ohja", 5, 5);
+        //Tallentaja elsanTallentaja = new Tallentaja(elsa.getTiedosto());
+        elsa.lisaaKurssisuoritus("Ohja", 5, 5);
         System.out.println(elsa.getTiedosto().length());
-        elsanTallentaja.lisaaKurssisuoritus("Ohpe", 5, 5);
+        elsa.lisaaKurssisuoritus("Ohpe", 5, 5);
         
         Kayttoliittyma kayttoliittyma = new Kayttoliittyma(elsa.getTiedosto(), elsa);
         SwingUtilities.invokeLater(kayttoliittyma);
