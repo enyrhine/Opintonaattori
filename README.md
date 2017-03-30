@@ -8,4 +8,4 @@ Näin pystyt helposti seuraamaan opintojasi vaikka suorittaisit päällekäin ka
 * [Linkki aihekuvaukseen](https://github.com/enyrhine/Opintonaattori/blob/master/dokumentaatio/aiheenKuvausJaRakenne.md)
 * [Linkki aihekuvaukseen](https://github.com/enyrhine/Opintonaattori/blob/master/dokumentaatio/tuntikirjanpito.md)
 * [Linkki pit-raporttiin](https://htmlpreview.github.io/?https://github.com/enyrhine/Opintonaattori/blob/master/dokumentaatio/pit/201703302252/index.html)
-* [Linkki checkstyle-raporttiin](https://github.com/enyrhine/Opintonaattori/blob/master/dokumentaatio/tuntikirjanpito.md)
+* [Linkki checkstyle-raporttiin](https://htmlpreview.github.io/?https://github.com/enyrhine/Opintonaattori/blob/master/dokumentaatio/checkstyle/site/checkstyle.html)
