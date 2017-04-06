@@ -22,6 +22,12 @@ public class Raporttikone {
 
     }
 
+    /**
+     * Metodi lukee tiedoston ja lisää
+     * saamansa rivit listaan.
+     *
+     * @return rivit arraylistinä
+     */
     public List<String> lueTiedosto() {
         try {
             this.rivit = FileUtils.readLines(this.tiedosto, "utf-8");

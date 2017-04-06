@@ -26,6 +26,14 @@ public class LisaysKuuntelija implements ActionListener {
         this.lahde3 = lahde3;
     }
     
+    /**
+     * Metodi lisää käyttäjälle uuden kurssisuorituksen 
+     * kun lisää nappia painetaan.
+     *
+     * @param e annettu ActionEvent
+     *
+     * @see com.opintonaattori.logiikka.Kayttaja#lisaaKurssisuoritus(java.lang.String, int, int)
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         try {

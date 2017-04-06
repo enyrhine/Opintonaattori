@@ -46,6 +46,20 @@ under the License.
           <tbody>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#com.opintonaattori.logiikka.Kurssisuoritus.java">com/opintonaattori/logiikka/Kurssisuoritus.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#com.opintonaattori.tiedosto.Raporttikone.java">com/opintonaattori/tiedosto/Raporttikone.java</a>
                 </td>
                 <td>
@@ -60,35 +74,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#com.opintonaattori.main.Kayttaja.java">com/opintonaattori/main/Kayttaja.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="${project.url}/checkstyle.html#com.opintonaattori.kayttoliittyma.Kayttoliittyma.java">com/opintonaattori/kayttoliittyma/Kayttoliittyma.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#com.opintonaattori.main.Kurssisuoritus.java">com/opintonaattori/main/Kurssisuoritus.java</a>
                 </td>
                 <td>
                   0
@@ -117,6 +103,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#com.opintonaattori.kayttoliittyma.LisaysKuuntelija.java">com/opintonaattori/kayttoliittyma/LisaysKuuntelija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#com.opintonaattori.logiikka.Kayttaja.java">com/opintonaattori/logiikka/Kayttaja.java</a>
                 </td>
                 <td>
                   0

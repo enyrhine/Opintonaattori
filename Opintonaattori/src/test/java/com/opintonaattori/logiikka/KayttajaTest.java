@@ -48,21 +48,21 @@ public class KayttajaTest {
         assertEquals(kurssisuorituksiaAluksi + 1, kurssisuorituksiaLopuksi);
     }
     
-    @Test
-    public void getKurssisuoritusByNameToimii() throws IOException {
-        testi.lisaaKurssisuoritus("Ohja", 5, 5);
-        testi.lisaaKurssisuoritus("Ohpe", 5, 5);
-        String nimi = testi.getKurssisuoritusByName("Ohja");
-        assertEquals("Ohja", nimi);
-    }
-    
-    @Test
-    public void getKurssisuoritusByNameEiToimi() throws IOException {
-        testi.lisaaKurssisuoritus("Tira", 5, 5);
-        testi.lisaaKurssisuoritus("Ohpe", 5, 5);
-        String nimi = testi.getKurssisuoritusByName("Ohja");
-        assertEquals(null, nimi);
-    }
+//    @Test
+//    public void getKurssisuoritusByNameToimii() throws IOException {
+//        testi.lisaaKurssisuoritus("Ohja", 5, 5);
+//        testi.lisaaKurssisuoritus("Ohpe", 5, 5);
+//        String nimi = testi.getKurssisuoritusByName("Ohja");
+//        assertEquals("Ohja", nimi);
+//    }
+//    
+//    @Test
+//    public void getKurssisuoritusByNameEiToimi() throws IOException {
+//        testi.lisaaKurssisuoritus("Tira", 5, 5);
+//        testi.lisaaKurssisuoritus("Ohpe", 5, 5);
+//        String nimi = testi.getKurssisuoritusByName("Ohja");
+//        assertEquals(null, nimi);
+//    }
     
 //    @Test
 //    public void 

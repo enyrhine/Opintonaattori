@@ -22,6 +22,12 @@ public class Tallentaja {
 
     }
 
+    /**
+     * Metodi kirjoittaa tiedostoon käyttäjän haluaman tekstin.
+     *
+     * @param teksti Käyttäjän antama teksti
+     *
+     */
     public void kirjoitaTiedostoon(String teksti) {
         try {
             this.kirjoittaja.write(teksti);
@@ -32,6 +38,12 @@ public class Tallentaja {
         
     }
 
+    /**
+     * Metodi lisää käyttäjälle uuden kurssisuorituksen.
+     *
+     * @param kurssi Käyttäjän antama kurssisuoritus
+     *
+     */
     public void lisaaKurssisuoritus(Kurssisuoritus kurssi) {
         try (FileWriter uusiKirjoittaja = new FileWriter(this.kayttajanTiedosto, true)) {
             uusiKirjoittaja.write(kurssi.getKurssisuoritus() + "\n");
