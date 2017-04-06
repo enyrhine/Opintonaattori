@@ -54,16 +54,13 @@ public class Kayttoliittyma implements Runnable {
         JTextField op = new JTextField();
         JTextField arvosana = new JTextField();
         JButton lisaa = new JButton("Lisää kurssisuoritus");
-        try {
-            LisaysKuuntelija lisaysKuuntelija = new LisaysKuuntelija(this.kayttaja, kurssinNimi, Integer.parseInt(op.getText()), Integer.parseInt(arvosana.getText()));
-            lisaa.addActionListener(lisaysKuuntelija);
-            ActionEvent testi = new ActionEvent(lisaysKuuntelija, 1, "lisää");
-            lisaysKuuntelija.actionPerformed(testi);
 
-        } catch (Exception e) {
-            System.out.println("Virhe tiedostoon kirjoittamisessa: " + e.getMessage());
-        }
-
+        
+        LisaysKuuntelija lisaysKuuntelija = new LisaysKuuntelija(this.kayttaja, kurssinNimi, 0, 0);
+        lisaa.addActionListener(lisaysKuuntelija);
+        ActionEvent testi = new ActionEvent(lisaysKuuntelija, 1, "lisää");
+        lisaysKuuntelija.actionPerformed(testi);
+        
         container.add(kurssi);
         container.add(nimi);
         for (int i = 0; i < 2; i++) {
@@ -77,6 +74,23 @@ public class Kayttoliittyma implements Runnable {
             container.add(new JLabel(""));
         }
         container.add(lisaa);
+
+//        try {
+//            if (op.getText().isEmpty() | arvosana.getText().isEmpty()) {
+//                LisaysKuuntelija lisaysKuuntelija = new LisaysKuuntelija(this.kayttaja, kurssinNimi, 0, 0);
+//                lisaa.addActionListener(lisaysKuuntelija);
+//                ActionEvent testi = new ActionEvent(lisaysKuuntelija, 1, "lisää");
+//                lisaysKuuntelija.actionPerformed(testi);
+//            } else {
+//                LisaysKuuntelija lisaysKuuntelija = new LisaysKuuntelija(this.kayttaja, kurssinNimi, Integer.parseInt(op.getText()), Integer.parseInt(arvosana.getText()));
+//                lisaa.addActionListener(lisaysKuuntelija);
+//                ActionEvent testi = new ActionEvent(lisaysKuuntelija, 1, "lisää");
+//                lisaysKuuntelija.actionPerformed(testi);
+//            }
+//
+//        } catch (Exception e) {
+//            System.out.println("Virhe tiedostoon kirjoittamisessa: " + e.getMessage());
+//        }
     }
 
     public JFrame getFrame() {

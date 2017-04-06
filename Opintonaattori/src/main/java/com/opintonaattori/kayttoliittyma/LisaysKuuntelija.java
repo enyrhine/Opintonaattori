@@ -26,10 +26,16 @@ public class LisaysKuuntelija implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
-            this.kayttaja.lisaaKurssisuoritus(this.lahde1.getText(), lahde2, lahde3);
+            this.kayttaja.lisaaKurssisuoritus(this.lahde1.getName(), this.lahde2, this.lahde3);
         } catch (IOException ex) {
             Logger.getLogger(LisaysKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public void setLisaysKuuntelija(JTextField a, int b, int c) {
+        this.lahde1 = a;
+        this.lahde2 = b;
+        this.lahde3 = c;
     }
     
 }

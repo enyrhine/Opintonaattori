@@ -9,7 +9,7 @@ import javax.swing.SwingUtilities;
 public class Main {
     
     public static void main(String[] args) throws IOException {
-        Kayttaja elsa = new Kayttaja("Testi");
+        Kayttaja elsa = new Kayttaja("Sonja");
         //Tallentaja elsanTallentaja = new Tallentaja(elsa.getTiedosto());
         elsa.lisaaKurssisuoritus("Ohja", 5, 5);
         //System.out.println(elsa.getTiedosto().length());
