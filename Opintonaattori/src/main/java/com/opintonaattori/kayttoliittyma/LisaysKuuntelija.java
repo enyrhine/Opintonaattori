@@ -7,21 +7,26 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 public class LisaysKuuntelija implements ActionListener {
 
     private Kayttaja kayttaja;
-    private JTextArea lahde;
+    private JTextField lahde1;
+    private int lahde2;
+    private int lahde3;
     
-    public LisaysKuuntelija(Kayttaja kayttaja, JTextArea lahde) {
+    public LisaysKuuntelija(Kayttaja kayttaja, JTextField lahde1, int lahde2, int lahde3) {
         this.kayttaja = kayttaja;
-        this.lahde = lahde;
+        this.lahde1 = lahde1;
+        this.lahde2 = lahde2;
+        this.lahde3 = lahde3;
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
-            this.kayttaja.lisaaKurssisuoritus(this.lahde.getText(), 0, 0);
+            this.kayttaja.lisaaKurssisuoritus(this.lahde1.getText(), lahde2, lahde3);
         } catch (IOException ex) {
             Logger.getLogger(LisaysKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
         }

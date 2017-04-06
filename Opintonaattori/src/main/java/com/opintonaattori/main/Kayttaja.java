@@ -15,8 +15,8 @@ public class Kayttaja {
 
     public Kayttaja(String nimi) throws IOException {
         this.nimi = nimi;
-        this.kurssisuoritukset = new ArrayList();
-        this.tiedosto = new File(nimi);
+        this.kurssisuoritukset = new ArrayList<>();
+        this.tiedosto = new File("src/resources/" + this.nimi + ".csv");
         this.tallentaja = new Tallentaja(this.tiedosto);
     }
 
@@ -59,12 +59,12 @@ public class Kayttaja {
         }
     }
 
-    public void muokkaaKurssia(Kurssisuoritus kurssi, int arvosana, int op, boolean onkoMaisteri) {
-        if (this.kurssisuoritukset.contains(kurssi)) {
-            kurssi.setArvosana(arvosana);
-            kurssi.setOp(op);
-            kurssi.setTutkinto(onkoMaisteri);
-        }
-    }
+//    public void muokkaaKurssia(Kurssisuoritus kurssi, int arvosana, int op, boolean onkoMaisteri) {
+//        if (this.kurssisuoritukset.contains(kurssi)) {
+//            kurssi.setArvosana(arvosana);
+//            kurssi.setOp(op);
+//            kurssi.setTutkinto(onkoMaisteri);
+//        }
+//    }
 
 }

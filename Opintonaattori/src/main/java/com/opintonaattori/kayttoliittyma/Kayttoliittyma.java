@@ -4,7 +4,11 @@ import com.opintonaattori.main.Kayttaja;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
 import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -27,7 +31,7 @@ public class Kayttoliittyma implements Runnable {
 
     @Override
     public void run() {
-        frame = new JFrame(tiedosto.getName());
+        frame = new JFrame(kayttaja.getNimi());
         frame.setPreferredSize(new Dimension(650, 150));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -42,27 +46,36 @@ public class Kayttoliittyma implements Runnable {
         GridLayout layout = new GridLayout(3, 4);
         container.setLayout(layout);
         JLabel kurssi = new JLabel("Kurssin nimi: ");
+        //muokkaa kurrsin nimeksi
         JLabel nimi = new JLabel(this.tiedosto.toString());
 
         JLabel uusiKurssi = new JLabel("Lisää uusi kurssisuoritus: ");
         JTextField kurssinNimi = new JTextField();
-        JTextArea op = new JTextArea();
+        JTextField op = new JTextField();
         JTextField arvosana = new JTextField();
         JButton lisaa = new JButton("Lisää kurssisuoritus");
-        LisaysKuuntelija lisaysKuuntelija = new LisaysKuuntelija(this.kayttaja, op);
-        lisaa.addActionListener(lisaysKuuntelija);
-        
+        try {
+            LisaysKuuntelija lisaysKuuntelija = new LisaysKuuntelija(this.kayttaja, kurssinNimi, Integer.parseInt(op.getText()), Integer.parseInt(arvosana.getText()));
+            lisaa.addActionListener(lisaysKuuntelija);
+            ActionEvent testi = new ActionEvent(lisaysKuuntelija, 1, "lisää");
+            lisaysKuuntelija.actionPerformed(testi);
+
+        } catch (Exception e) {
+            System.out.println("Virhe tiedostoon kirjoittamisessa: " + e.getMessage());
+        }
+
         container.add(kurssi);
         container.add(nimi);
-        container.add(new JLabel(""));
-        container.add(new JLabel(""));
+        for (int i = 0; i < 2; i++) {
+            container.add(new JLabel(""));
+        }
         container.add(uusiKurssi);
         container.add(kurssinNimi);
         container.add(op);
         container.add(arvosana);
-        container.add(new JLabel(""));
-        container.add(new JLabel(""));
-        container.add(new JLabel(""));
+        for (int i = 0; i < 3; i++) {
+            container.add(new JLabel(""));
+        }
         container.add(lisaa);
     }
 
