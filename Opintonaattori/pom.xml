@@ -43,10 +43,12 @@
                     <targetClasses>
                         <param>com.opintonaattori.main*</param>
                         <param>com.opintonaattori.tiedosto*</param>
+                        <param>com.opintonaattori.logiikka*</param>
                     </targetClasses>
                     <targetTests>
                         <param>com.opintonaattori.main*</param>
                         <param>com.opintonaattori.tiedosto*</param>
+                        <param>com.opintonaattori.logiikka*</param>
                     </targetTests>
                 </configuration>
 
@@ -64,6 +66,11 @@
                 <artifactId>maven-jxr-plugin</artifactId>
                 <version>2.5</version>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.3</version>
+            </plugin> 
         </plugins>
     </build>
 </project>

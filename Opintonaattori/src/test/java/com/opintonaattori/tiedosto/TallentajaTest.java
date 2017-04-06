@@ -1,7 +1,7 @@
 
 package com.opintonaattori.tiedosto;
 
-import com.opintonaattori.main.Kurssisuoritus;
+import com.opintonaattori.logiikka.Kurssisuoritus;
 import java.io.File;
 import org.junit.After;
 import org.junit.AfterClass;

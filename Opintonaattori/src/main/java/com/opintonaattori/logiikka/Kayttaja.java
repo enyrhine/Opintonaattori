@@ -1,4 +1,4 @@
-package com.opintonaattori.main;
+package com.opintonaattori.logiikka;
 
 import com.opintonaattori.tiedosto.Tallentaja;
 import java.io.File;
@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Luokka tarjoaa käyttäjän henkilökohtaisten kurssisuoritusten lisäyksiin tarvittavia metodeita.
+ */
 public class Kayttaja {
 
     private String nimi;

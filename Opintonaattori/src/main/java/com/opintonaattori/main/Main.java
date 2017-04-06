@@ -1,11 +1,15 @@
 
 package com.opintonaattori.main;
 
+import com.opintonaattori.logiikka.Kayttaja;
 import com.opintonaattori.kayttoliittyma.Kayttoliittyma;
 import com.opintonaattori.tiedosto.Tallentaja;
 import java.io.IOException;
 import javax.swing.SwingUtilities;
 
+/**
+ * Ohjelman käyttöliittymän testaukseen.
+ */
 public class Main {
     
     public static void main(String[] args) throws IOException {

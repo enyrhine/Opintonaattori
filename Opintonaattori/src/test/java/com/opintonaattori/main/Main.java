@@ -5,7 +5,7 @@
  */
 package com.opintonaattori.main;
 
-import com.opintonaattori.main.Kayttaja;
+import com.opintonaattori.logiikka.Kayttaja;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.After;

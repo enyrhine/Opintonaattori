@@ -1,6 +1,6 @@
-package com.opintonaattori.main;
+package com.opintonaattori.logiikka;
 
-import com.opintonaattori.main.Kurssisuoritus;
+import com.opintonaattori.logiikka.Kurssisuoritus;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Scanner;
 import org.apache.commons.io.FileUtils;
 
+/**
+ * Luokka tarjoaa tiedoston lukemiseen tarvittavia metodeja, vaatii vielä toiminnallisuutta.
+ */
 public class Raporttikone {
 
     private Scanner lukija;

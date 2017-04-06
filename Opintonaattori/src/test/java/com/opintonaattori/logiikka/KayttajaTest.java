@@ -1,6 +1,6 @@
-package com.opintonaattori.main;
+package com.opintonaattori.logiikka;
 
-import com.opintonaattori.main.Kayttaja;
+import com.opintonaattori.logiikka.Kayttaja;
 import java.io.IOException;
 import org.junit.After;
 import org.junit.AfterClass;

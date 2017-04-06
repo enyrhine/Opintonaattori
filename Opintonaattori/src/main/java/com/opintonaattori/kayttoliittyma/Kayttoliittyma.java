@@ -1,6 +1,7 @@
 package com.opintonaattori.kayttoliittyma;
 
-import com.opintonaattori.main.Kayttaja;
+import com.opintonaattori.logiikka.Kayttaja;
+import java.awt.Button;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -16,6 +17,9 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
+/**
+ * Luokka tarjoaa käyttöliittymän luontiin tarvittavat metodit.
+ */
 public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
@@ -50,15 +54,15 @@ public class Kayttoliittyma implements Runnable {
         JLabel nimi = new JLabel(this.tiedosto.toString());
 
         JLabel uusiKurssi = new JLabel("Lisää uusi kurssisuoritus: ");
-        JTextField kurssinNimi = new JTextField();
-        JTextField op = new JTextField();
-        JTextField arvosana = new JTextField();
+        JTextField kurssinNimi = new JTextField("Kurssin nimi");
+        JTextField op = new JTextField("Opintopisteet");
+        JTextField arvosana = new JTextField("Arvosana");
         JButton lisaa = new JButton("Lisää kurssisuoritus");
-
-        
-        LisaysKuuntelija lisaysKuuntelija = new LisaysKuuntelija(this.kayttaja, kurssinNimi, 0, 0);
+        //Button lisa = new Button("moi", new ClickListener());
+     
+        LisaysKuuntelija lisaysKuuntelija = new LisaysKuuntelija(this.kayttaja, kurssinNimi, op, 0);
         lisaa.addActionListener(lisaysKuuntelija);
-        ActionEvent testi = new ActionEvent(lisaysKuuntelija, 1, "lisää");
+        ActionEvent testi = new ActionEvent(lisaysKuuntelija, 2, "lisää");
         lisaysKuuntelija.actionPerformed(testi);
         
         container.add(kurssi);

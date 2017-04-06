@@ -1,5 +1,8 @@
-package com.opintonaattori.main;
+package com.opintonaattori.logiikka;
 
+/**
+ * Luokka tarjoaa kurssisuorituksen luontiin ja arvojen asettamiseen tarvittavia metodeita.
+ */
 public class Kurssisuoritus {
 
     private String kurssi;
