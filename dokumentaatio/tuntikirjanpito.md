@@ -6,5 +6,5 @@ Päivä | Tunnit | Kuvaus
 29.03.2017 | 3h | Tiedoston lisäys -toimintoja ja käyttöliittymän ensimmäinen versio
 30.03.2017 | 2h | Testien lisäilyä, tiedoston lukemisen -toimintojen aloittaminen.
 30.03.2017 | 2h | Testien lisäilyä, pit ja checkstyle -raportit.
-06.04.2017 | 12h | Käyttöliittymän toiminnallisuuden kanssa tappelua: kurssin tietojen poimiminen käyttäjältä, Javadoc, pit ja checkstyle -raportit.
+06.04.2017 | 12h | Koodikatselmoinnin pohjalta korjauksia. Käyttöliittymän toiminnallisuuden kanssa tappelua: kurssin tietojen poimiminen käyttäjältä, luokkien ja pakkausten järjestelyä, Javadoc, pit ja checkstyle -raportit.
 
