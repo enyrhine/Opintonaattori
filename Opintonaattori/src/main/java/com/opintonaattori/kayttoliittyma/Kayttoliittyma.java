@@ -1,6 +1,7 @@
 package com.opintonaattori.kayttoliittyma;
 
 import com.opintonaattori.logiikka.Kayttaja;
+import com.opintonaattori.logiikka.Kurssisuoritus;
 import java.awt.Button;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -24,13 +25,11 @@ public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
     private File tiedosto;
-    //private LisaysKuuntelija lisaysKuuntelija;
     private Kayttaja kayttaja;
 
     public Kayttoliittyma(File tiedosto, Kayttaja kayttaja) {
         this.tiedosto = tiedosto;
         this.kayttaja = kayttaja;
-        //this.lisaysKuuntelija = new LisaysKuuntelija(this.tiedosto.getName(), );
     }
 
     @Override
@@ -45,25 +44,21 @@ public class Kayttoliittyma implements Runnable {
         frame.pack();
         frame.setVisible(true);
     }
-
+    
     private void luoKomponentit(Container container) {
         GridLayout layout = new GridLayout(3, 4);
         container.setLayout(layout);
         JLabel kurssi = new JLabel("Kurssin nimi: ");
         //muokkaa kurrsin nimeksi
-        JLabel nimi = new JLabel(this.tiedosto.toString());
+        JLabel nimi = new JLabel(this.kayttaja.getKurssit().toString());
 
         JLabel uusiKurssi = new JLabel("Lisää uusi kurssisuoritus: ");
         JTextField kurssinNimi = new JTextField("Kurssin nimi");
         JTextField op = new JTextField("Opintopisteet");
         JTextField arvosana = new JTextField("Arvosana");
         JButton lisaa = new JButton("Lisää kurssisuoritus");
-        //Button lisa = new Button("moi", new ClickListener());
      
-        LisaysKuuntelija lisaysKuuntelija = new LisaysKuuntelija(this.kayttaja, kurssinNimi, op, arvosana);
-        lisaa.addActionListener(lisaysKuuntelija);
-        ActionEvent testi = new ActionEvent(lisaysKuuntelija, 2, "lisää");
-        lisaysKuuntelija.actionPerformed(testi);
+        setLisayskuuntelija(kurssinNimi, op, arvosana, lisaa);
         
         container.add(kurssi);
         container.add(nimi);
@@ -79,23 +74,31 @@ public class Kayttoliittyma implements Runnable {
         }
         container.add(lisaa);
 
-//        try {
-//            if (op.getText().isEmpty() | arvosana.getText().isEmpty()) {
-//                LisaysKuuntelija lisaysKuuntelija = new LisaysKuuntelija(this.kayttaja, kurssinNimi, 0, 0);
-//                lisaa.addActionListener(lisaysKuuntelija);
-//                ActionEvent testi = new ActionEvent(lisaysKuuntelija, 1, "lisää");
-//                lisaysKuuntelija.actionPerformed(testi);
-//            } else {
-//                LisaysKuuntelija lisaysKuuntelija = new LisaysKuuntelija(this.kayttaja, kurssinNimi, Integer.parseInt(op.getText()), Integer.parseInt(arvosana.getText()));
-//                lisaa.addActionListener(lisaysKuuntelija);
-//                ActionEvent testi = new ActionEvent(lisaysKuuntelija, 1, "lisää");
-//                lisaysKuuntelija.actionPerformed(testi);
-//            }
-//
-//        } catch (Exception e) {
-//            System.out.println("Virhe tiedostoon kirjoittamisessa: " + e.getMessage());
-//        }
     }
+    
+    /**
+     * Metodi luo uuden lisayskuuntelijan ja asettaa sen arvoiksi halutut kurssin parametrit.
+     *
+     * @param kurssinNimi annettu JTextField
+     * @param op annettu JTextField
+     * @param arvosana annettu JTextField
+     * @param lisaa annettu JButton
+     *
+     * @see com.opintonaattori.kayttoliittyma.LisaysKuuntelija#actionPerformed(java.awt.event.ActionEvent) 
+     */
+    public LisaysKuuntelija setLisayskuuntelija(JTextField kurssinNimi, JTextField op, JTextField arvosana, JButton lisaa) {
+        LisaysKuuntelija lisaysKuuntelija = new LisaysKuuntelija(this.kayttaja, kurssinNimi, op, arvosana);
+        lisaa.addActionListener(lisaysKuuntelija);
+        ActionEvent tapahtuma = new ActionEvent(lisaysKuuntelija, 2, "lisää");
+        lisaysKuuntelija.actionPerformed(tapahtuma);
+        return lisaysKuuntelija;
+    }
+//    
+//    @Override
+//    public String toString() {
+//        
+//        return this.kayttaja.getKurssit().toString();
+//    }
 
     public JFrame getFrame() {
         return frame;

@@ -1,5 +1,6 @@
 package com.opintonaattori.logiikka;
 
+import com.opintonaattori.tiedosto.Raporttikone;
 import com.opintonaattori.tiedosto.Tallentaja;
 import java.io.File;
 import java.io.IOException;
@@ -16,23 +17,26 @@ public class Kayttaja {
     private List<Kurssisuoritus> kurssisuoritukset;
     private File tiedosto;
     private Tallentaja tallentaja;
+    private Raporttikone raportti;
 
     public Kayttaja(String nimi) throws IOException {
         this.nimi = nimi;
         this.kurssisuoritukset = new ArrayList<>();
         this.tiedosto = new File("src/resources/" + this.nimi + ".csv");
         this.tallentaja = new Tallentaja(this.tiedosto);
+        this.raportti = new Raporttikone(this.tiedosto);
     }
 
     /**
-     * Metodi lisää käyttäjälle uuden kurssisuorituksen 
-     * arvosanoineen ja opintopisteineen.
+     * Metodi lisää käyttäjälle uuden kurssisuorituksen arvosanoineen ja
+     * opintopisteineen.
      *
      * @param nimi Käyttäjän antama kurssin nimi
      * @param op Käyttäjän antama opintopistemäärä
      * @param arvosana Käyttäjän antama arvosana
      *
-     * @see com.opintonaattori.tiedosto.Tallentaja#lisaaKurssisuoritus(com.opintonaattori.logiikka.Kurssisuoritus)
+     * @see
+     * com.opintonaattori.tiedosto.Tallentaja#lisaaKurssisuoritus(com.opintonaattori.logiikka.Kurssisuoritus)
      */
     public void lisaaKurssisuoritus(String nimi, int op, int arvosana) throws IOException {
         Kurssisuoritus kurssi = new Kurssisuoritus(nimi, op, arvosana);
@@ -46,19 +50,27 @@ public class Kayttaja {
 //            System.out.println(kurssi);
 //        }
 //    }
-
     public String getNimi() {
         return this.nimi;
     }
 
     public List getKurssit() {
-        return this.kurssisuoritukset;
+        return this.raportti.lueTiedosto();
     }
 
     public File getTiedosto() {
         return this.tiedosto;
     }
     
+    public String getKurssi(String nimi) {
+        for (String rivi : this.raportti.lueTiedosto()) {
+            if (rivi.contains(nimi)) {
+                return rivi;
+            }
+        }
+        return null;
+    }
+
     //Kommentoitu ulos turhia tai ei toiminnallisuutta sisältäviä metodeja, palataan myöhemmin näihin.
 //
 //    public String getKurssisuoritusByName(String nimi) {
@@ -69,13 +81,11 @@ public class Kayttaja {
 //        }
 //        return null;
 //    }
-
 //    public void poistaKurssisuoritus(Kurssisuoritus kurssi) {
 //        if (this.kurssisuoritukset.contains(kurssi)) {
 //            this.kurssisuoritukset.remove(kurssi);
 //        }
 //    }
-
 //    public void muokkaaKurssia(Kurssisuoritus kurssi, int arvosana, int op, boolean onkoMaisteri) {
 //        if (this.kurssisuoritukset.contains(kurssi)) {
 //            kurssi.setArvosana(arvosana);

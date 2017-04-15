@@ -29,7 +29,7 @@ public class Raporttikone {
      * @return rivit arraylistinä
      */
     public List<String> lueTiedosto() {
-        try {
+        try {  
             this.rivit = FileUtils.readLines(this.tiedosto, "utf-8");
         } catch (Exception e) {
             System.out.println("Virhe!!" + e.getMessage());

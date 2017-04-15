@@ -11,6 +11,7 @@ public class Tallentaja {
 
     private FileWriter kirjoittaja;
     private File kayttajanTiedosto;
+    
 
     public Tallentaja(File kayttaja) {
         try {
@@ -19,6 +20,7 @@ public class Tallentaja {
             System.out.println("Virhe!!" + e.getMessage());
         }
         this.kayttajanTiedosto = kayttaja;
+     
 
     }
 

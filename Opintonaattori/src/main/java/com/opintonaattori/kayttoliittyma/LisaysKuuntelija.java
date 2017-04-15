@@ -43,6 +43,12 @@ public class LisaysKuuntelija implements ActionListener {
         }
     }
     
+    /**
+     * Metodi muuttaa saadun tekstikentän arvon kokonaisluvuksi.
+     *
+     * @param a muunnettavaksi haluttu JTextField
+     *
+     */
     public int intMuunnin(JTextField a) {
         int numero = Integer.parseInt(a.getText());
         return numero;
