@@ -60,7 +60,7 @@ public class Kayttoliittyma implements Runnable {
         JButton lisaa = new JButton("Lisää kurssisuoritus");
         //Button lisa = new Button("moi", new ClickListener());
      
-        LisaysKuuntelija lisaysKuuntelija = new LisaysKuuntelija(this.kayttaja, kurssinNimi, op, 0);
+        LisaysKuuntelija lisaysKuuntelija = new LisaysKuuntelija(this.kayttaja, kurssinNimi, op, arvosana);
         lisaa.addActionListener(lisaysKuuntelija);
         ActionEvent testi = new ActionEvent(lisaysKuuntelija, 2, "lisää");
         lisaysKuuntelija.actionPerformed(testi);

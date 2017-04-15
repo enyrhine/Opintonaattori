@@ -17,9 +17,9 @@ public class LisaysKuuntelija implements ActionListener {
     private Kayttaja kayttaja;
     private JTextField lahde1;
     private JTextField lahde2;
-    private int lahde3;
+    private JTextField lahde3;
     
-    public LisaysKuuntelija(Kayttaja kayttaja, JTextField lahde1, JTextField lahde2, int lahde3) {
+    public LisaysKuuntelija(Kayttaja kayttaja, JTextField lahde1, JTextField lahde2, JTextField lahde3) {
         this.kayttaja = kayttaja;
         this.lahde1 = lahde1;
         this.lahde2 = lahde2;
@@ -37,18 +37,15 @@ public class LisaysKuuntelija implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
-            //int lahdeTesti = Integer.parseInt(this.lahde2.getText());
-            int lahdeTesti = 0;
-            this.kayttaja.lisaaKurssisuoritus(this.lahde1.getText(), lahdeTesti, this.lahde3);
+            this.kayttaja.lisaaKurssisuoritus(this.lahde1.getText(), intMuunnin(this.lahde2), intMuunnin(this.lahde3));
         } catch (IOException | NumberFormatException ex) {
             Logger.getLogger(LisaysKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-//    public void setLisaysKuuntelija(JTextField a, JTextField b, int c) {
-//        this.lahde1 = a;
-//        this.lahde2 = b;
-//        this.lahde3 = c;
-//    }
+    public int intMuunnin(JTextField a) {
+        int numero = Integer.parseInt(a.getText());
+        return numero;
+    }
     
 }
