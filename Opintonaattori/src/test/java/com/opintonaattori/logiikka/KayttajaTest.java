@@ -15,6 +15,7 @@ public class KayttajaTest {
 
     public KayttajaTest() throws IOException {
         this.testi = new Kayttaja("testi");
+        
     }
 
     @BeforeClass
@@ -38,6 +39,7 @@ public class KayttajaTest {
         Kayttaja kayttaja = new Kayttaja("Malla");
         String nimi = kayttaja.getNimi();
         assertEquals("Malla", nimi);
+        kayttaja.getTiedosto().delete();
     }
 
     @Test
@@ -46,6 +48,7 @@ public class KayttajaTest {
         testi.lisaaKurssisuoritus("Ohja", 5, 5);
         int kurssisuorituksiaLopuksi = testi.getKurssit().size();
         assertEquals(kurssisuorituksiaAluksi + 1, kurssisuorituksiaLopuksi);
+        this.testi.getTiedosto().delete();
     }
     
 //    @Test

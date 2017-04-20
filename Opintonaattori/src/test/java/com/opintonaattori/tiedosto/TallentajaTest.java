@@ -39,6 +39,7 @@ public class TallentajaTest {
          tallentaja.kirjoitaTiedostoon("Moi");
          
          assertEquals(3, tiedosto.length());
+         this.tiedosto.delete();
      }
      
      @Test
@@ -47,5 +48,6 @@ public class TallentajaTest {
          Tallentaja tallentaja = new Tallentaja(teksti);
          tallentaja.lisaaKurssisuoritus(new Kurssisuoritus("Ohja", 5, 5));
          assertEquals(9, teksti.length());
+         teksti.delete();
      }
 }
