@@ -54,6 +54,17 @@ public class Kayttaja {
         return this.nimi;
     }
 
+    /**
+     * Metodi hakee kaikki tiedostossa olevat kurssit ja palauttaa ne listana jolla Stringinä kurssin tiedot.
+     *
+     * @see 
+     * com.opintonaattori.tiedosto.Raporttikone#lueTiedosto() 
+     * @see 
+     * com.opintonaattori.tiedosto.Raporttikone#lueRivit(int) 
+     * 
+     * @return ArrayListin kursseista
+     *
+     */
     public ArrayList<String> getKurssit() {
         ArrayList<String> kaikkiKurssit = new ArrayList<>();
         for (int i = 0; i < this.raportti.lueTiedosto().size(); i++) {

@@ -35,11 +35,12 @@ public class TallentajaTest {
 
      @Test
      public void tiedostoonTallennusToimii() {
+         File tiedosto2 = new File("moi");
          Tallentaja tallentaja = new Tallentaja(this.tiedosto);
          tallentaja.kirjoitaTiedostoon("Moi");
          
-         assertEquals(3, tiedosto.length());
-         this.tiedosto.delete();
+         assertEquals(3, tiedosto2.length());
+         tiedosto2.delete();
      }
      
      @Test
