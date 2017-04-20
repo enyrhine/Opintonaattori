@@ -40,7 +40,7 @@ public class Kayttaja {
      */
     public void lisaaKurssisuoritus(String nimi, int op, int arvosana) throws IOException {
         Kurssisuoritus kurssi = new Kurssisuoritus(nimi, op, arvosana);
-        this.kurssisuoritukset.add(kurssi);
+       // this.kurssisuoritukset.add(kurssi);
         this.tallentaja.lisaaKurssisuoritus(kurssi);
     }
 
