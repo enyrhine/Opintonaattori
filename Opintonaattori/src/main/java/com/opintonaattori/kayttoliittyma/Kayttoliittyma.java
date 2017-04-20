@@ -35,7 +35,7 @@ public class Kayttoliittyma implements Runnable {
     @Override
     public void run() {
         frame = new JFrame(kayttaja.getNimi());
-        frame.setPreferredSize(new Dimension(650, 150));
+        frame.setPreferredSize(new Dimension(1000, 150));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,47 +44,65 @@ public class Kayttoliittyma implements Runnable {
         frame.pack();
         frame.setVisible(true);
     }
-    
+
     private void luoKomponentit(Container container) {
-        GridLayout layout = new GridLayout(3, 4);
+        GridLayout layout = new GridLayout(4, 4);
         container.setLayout(layout);
-        JLabel kurssi = new JLabel("Kurssin nimi: ");
-        //muokkaa kurrsin nimeksi
-        JLabel nimi = new JLabel(this.kayttaja.getKurssit().toString());
+
+        for (int i = 0; i < this.kayttaja.getKurssit().size(); i++) {
+            JLabel kurssi = new JLabel("Kurssin nimi, opintopisteet, arvosana: ");
+            container.add(kurssi);
+            JLabel nimi = new JLabel(this.kayttaja.tulostaKurssinNimi(i));
+            container.add(nimi);
+            JLabel opintopiste = new JLabel(this.kayttaja.tulostaKurssinOpintopisteet(i));
+            container.add(opintopiste);
+            JLabel arvosana = new JLabel(this.kayttaja.tulostaKurssinArvosana(i));
+            container.add(arvosana);
+//            for (int j = 0; j < 2; j++) {
+//                container.add(new JLabel(""));
+//            }
+        }
+        //JLabel nimi = new JLabel(this.kayttaja.tulostaKurssit(0));
+        //JLabel nimi2 = new JLabel(this.kayttaja.tulostaKurssit(1));
 
         JLabel uusiKurssi = new JLabel("Lisää uusi kurssisuoritus: ");
         JTextField kurssinNimi = new JTextField("Kurssin nimi");
         JTextField op = new JTextField("Opintopisteet");
         JTextField arvosana = new JTextField("Arvosana");
         JButton lisaa = new JButton("Lisää kurssisuoritus");
-     
+
         setLisayskuuntelija(kurssinNimi, op, arvosana, lisaa);
-        
-        container.add(kurssi);
-        container.add(nimi);
-        for (int i = 0; i < 2; i++) {
-            container.add(new JLabel(""));
-        }
+
+        //container.add(nimi);
+//        for (int i = 0; i < 2; i++) {
+//            container.add(new JLabel(""));
+//        }
+//        container.add(nimi2);
+//        for (int i = 0; i < 2; i++) {
+//            container.add(new JLabel(""));
+//        }
         container.add(uusiKurssi);
         container.add(kurssinNimi);
         container.add(op);
         container.add(arvosana);
-        for (int i = 0; i < 3; i++) {
-            container.add(new JLabel(""));
-        }
+//        for (int i = 0; i < 3; i++) {
+//            container.add(new JLabel(""));
+//        }
         container.add(lisaa);
 
     }
-    
+
     /**
-     * Metodi luo uuden lisayskuuntelijan ja asettaa sen arvoiksi halutut kurssin parametrit.
+     * Metodi luo uuden lisayskuuntelijan ja asettaa sen arvoiksi halutut
+     * kurssin parametrit.
      *
      * @param kurssinNimi annettu JTextField
      * @param op annettu JTextField
      * @param arvosana annettu JTextField
      * @param lisaa annettu JButton
      *
-     * @see com.opintonaattori.kayttoliittyma.LisaysKuuntelija#actionPerformed(java.awt.event.ActionEvent) 
+     * @see
+     * com.opintonaattori.kayttoliittyma.LisaysKuuntelija#actionPerformed(java.awt.event.ActionEvent)
      */
     public LisaysKuuntelija setLisayskuuntelija(JTextField kurssinNimi, JTextField op, JTextField arvosana, JButton lisaa) {
         LisaysKuuntelija lisaysKuuntelija = new LisaysKuuntelija(this.kayttaja, kurssinNimi, op, arvosana);

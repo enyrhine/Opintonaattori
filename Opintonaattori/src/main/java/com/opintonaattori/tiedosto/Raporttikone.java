@@ -36,4 +36,14 @@ public class Raporttikone {
         }
         return this.rivit;
     }
+    
+    public String[] lueRivit(int i) {
+        lueTiedosto();
+        return this.rivit.get(i).split(",");
+//        for (String string : rivit) {
+//           return string.split(",");
+//        }
+    }
+    
+    
 }

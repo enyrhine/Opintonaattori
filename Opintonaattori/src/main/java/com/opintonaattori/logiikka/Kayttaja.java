@@ -54,22 +54,39 @@ public class Kayttaja {
         return this.nimi;
     }
 
-    public List getKurssit() {
-        return this.raportti.lueTiedosto();
+    public ArrayList<String> getKurssit() {
+        ArrayList<String> kaikkiKurssit = new ArrayList<>();
+        for (int i = 0; i < this.raportti.lueTiedosto().size(); i++) {
+            String[] kurssiTiedot = this.raportti.lueRivit(i);
+            kaikkiKurssit.add(kurssiTiedot[0] + " " + kurssiTiedot[1] + " " + kurssiTiedot[2]);
+        }
+        return kaikkiKurssit;
+    }
+    
+    public String tulostaKurssit(int i) {
+        return getKurssit().get(i);
+    }
+    
+    public String tulostaKurssinNimi(int i) {
+        return getKurssi(i)[0];
+    }
+    
+    public String tulostaKurssinOpintopisteet(int i) {
+        return getKurssi(i)[1];
+    }
+    
+    public String tulostaKurssinArvosana(int i) {
+        return getKurssi(i)[2];
     }
 
     public File getTiedosto() {
         return this.tiedosto;
     }
     
-    public String getKurssi(String nimi) {
-        for (String rivi : this.raportti.lueTiedosto()) {
-            if (rivi.contains(nimi)) {
-                return rivi;
-            }
-        }
-        return null;
+    public String[] getKurssi(int i) {
+        return this.raportti.lueRivit(i);
     }
+    
 
     //Kommentoitu ulos turhia tai ei toiminnallisuutta sisältäviä metodeja, palataan myöhemmin näihin.
 //
