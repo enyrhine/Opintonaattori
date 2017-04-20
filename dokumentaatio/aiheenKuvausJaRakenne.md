@@ -7,3 +7,5 @@ kurssin ja sen tietojen lisäys
 ### Luokkakaavio
 ![Alt text](https://github.com/enyrhine/Opintonaattori/blob/master/dokumentaatio/Java_luokkakaavio2.png "Luokkakaavio")
 
+### Sekvenssikaavio
+![Alt text](https://github.com/enyrhine/Opintonaattori/blob/master/dokumentaatio/Sekvenssi_java.png "Sekvenssikaavio")
