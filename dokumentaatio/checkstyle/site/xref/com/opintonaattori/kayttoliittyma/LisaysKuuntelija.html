@@ -25,9 +25,9 @@
 <a class="jxr_linenumber" name="L17" href="#L17">17</a>      <strong class="jxr_keyword">private</strong> <a href="../../../com/opintonaattori/logiikka/Kayttaja.html">Kayttaja</a> kayttaja;
 <a class="jxr_linenumber" name="L18" href="#L18">18</a>      <strong class="jxr_keyword">private</strong> JTextField lahde1;
 <a class="jxr_linenumber" name="L19" href="#L19">19</a>      <strong class="jxr_keyword">private</strong> JTextField lahde2;
-<a class="jxr_linenumber" name="L20" href="#L20">20</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> lahde3;
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>      <strong class="jxr_keyword">private</strong> JTextField lahde3;
 <a class="jxr_linenumber" name="L21" href="#L21">21</a>      
-<a class="jxr_linenumber" name="L22" href="#L22">22</a>      <strong class="jxr_keyword">public</strong> <a href="../../../com/opintonaattori/kayttoliittyma/LisaysKuuntelija.html">LisaysKuuntelija</a>(<a href="../../../com/opintonaattori/logiikka/Kayttaja.html">Kayttaja</a> kayttaja, JTextField lahde1, JTextField lahde2, <strong class="jxr_keyword">int</strong> lahde3) {
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>      <strong class="jxr_keyword">public</strong> <a href="../../../com/opintonaattori/kayttoliittyma/LisaysKuuntelija.html">LisaysKuuntelija</a>(<a href="../../../com/opintonaattori/logiikka/Kayttaja.html">Kayttaja</a> kayttaja, JTextField lahde1, JTextField lahde2, JTextField lahde3) {
 <a class="jxr_linenumber" name="L23" href="#L23">23</a>          <strong class="jxr_keyword">this</strong>.kayttaja = kayttaja;
 <a class="jxr_linenumber" name="L24" href="#L24">24</a>          <strong class="jxr_keyword">this</strong>.lahde1 = lahde1;
 <a class="jxr_linenumber" name="L25" href="#L25">25</a>          <strong class="jxr_keyword">this</strong>.lahde2 = lahde2;
@@ -45,21 +45,24 @@
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>      @Override
 <a class="jxr_linenumber" name="L38" href="#L38">38</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> actionPerformed(ActionEvent e) {
 <a class="jxr_linenumber" name="L39" href="#L39">39</a>          <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L40" href="#L40">40</a>              <em class="jxr_comment">//int lahdeTesti = Integer.parseInt(this.lahde2.getText());</em>
-<a class="jxr_linenumber" name="L41" href="#L41">41</a>              <strong class="jxr_keyword">int</strong> lahdeTesti = 0;
-<a class="jxr_linenumber" name="L42" href="#L42">42</a>              <strong class="jxr_keyword">this</strong>.kayttaja.lisaaKurssisuoritus(<strong class="jxr_keyword">this</strong>.lahde1.getText(), lahdeTesti, <strong class="jxr_keyword">this</strong>.lahde3);
-<a class="jxr_linenumber" name="L43" href="#L43">43</a>          } <strong class="jxr_keyword">catch</strong> (IOException | NumberFormatException ex) {
-<a class="jxr_linenumber" name="L44" href="#L44">44</a>              Logger.getLogger(LisaysKuuntelija.<strong class="jxr_keyword">class</strong>.getName()).log(Level.SEVERE, <strong class="jxr_keyword">null</strong>, ex);
-<a class="jxr_linenumber" name="L45" href="#L45">45</a>          }
-<a class="jxr_linenumber" name="L46" href="#L46">46</a>      }
-<a class="jxr_linenumber" name="L47" href="#L47">47</a>      
-<a class="jxr_linenumber" name="L48" href="#L48">48</a>  <em class="jxr_comment">//    public void setLisaysKuuntelija(JTextField a, JTextField b, int c) {</em>
-<a class="jxr_linenumber" name="L49" href="#L49">49</a>  <em class="jxr_comment">//        this.lahde1 = a;</em>
-<a class="jxr_linenumber" name="L50" href="#L50">50</a>  <em class="jxr_comment">//        this.lahde2 = b;</em>
-<a class="jxr_linenumber" name="L51" href="#L51">51</a>  <em class="jxr_comment">//        this.lahde3 = c;</em>
-<a class="jxr_linenumber" name="L52" href="#L52">52</a>  <em class="jxr_comment">//    }</em>
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>      
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>  }
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>              <strong class="jxr_keyword">this</strong>.kayttaja.lisaaKurssisuoritus(<strong class="jxr_keyword">this</strong>.lahde1.getText(), intMuunnin(<strong class="jxr_keyword">this</strong>.lahde2), intMuunnin(<strong class="jxr_keyword">this</strong>.lahde3));
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>          } <strong class="jxr_keyword">catch</strong> (IOException | NumberFormatException ex) {
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>              Logger.getLogger(LisaysKuuntelija.<strong class="jxr_keyword">class</strong>.getName()).log(Level.SEVERE, <strong class="jxr_keyword">null</strong>, ex);
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>          }
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>      }
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>      
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  <em class="jxr_javadoccomment">     * Metodi muuttaa saadun tekstikentän arvon kokonaisluvuksi.</em>
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  <em class="jxr_javadoccomment">     * @param a muunnettavaksi haluttu JTextField</em>
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> intMuunnin(JTextField a) {
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>          <strong class="jxr_keyword">int</strong> numero = Integer.parseInt(a.getText());
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>          <strong class="jxr_keyword">return</strong> numero;
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>      }
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>      
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2017. All rights reserved.</div>
