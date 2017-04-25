@@ -7,4 +7,7 @@ Päivä | Tunnit | Kuvaus
 30.03.2017 | 2h | Testien lisäilyä, tiedoston lukemisen -toimintojen aloittaminen.
 30.03.2017 | 2h | Testien lisäilyä, pit ja checkstyle -raportit.
 06.04.2017 | 12h | Koodikatselmoinnin pohjalta korjauksia. Käyttöliittymän toiminnallisuuden kanssa tappelua: kurssin tietojen poimiminen käyttäjältä, luokkien ja pakkausten järjestelyä, Javadoc, pit ja checkstyle -raportit.
+15.04.2017 | 2h | Tallennukseen integerit toimivaksi.
+20.04.2017 | 6h | Kurssisuorituksen lisäys toimii, käyttöliittymän ulkoasua ja loput palautuksen jutut.
+25.04.2017 | 2h | Käyttöliittymän ulkoasu.
 
