@@ -10,4 +10,4 @@ Päivä | Tunnit | Kuvaus
 15.04.2017 | 2h | Tallennukseen integerit toimivaksi.
 20.04.2017 | 6h | Kurssisuorituksen lisäys toimii, käyttöliittymän ulkoasua ja loput palautuksen jutut.
 25.04.2017 | 2h | Käyttöliittymän ulkoasu.
-
+25.04.2017 | 2h | Uuden kurssin lisäyksen korjaaminen käyttöliittymään, kurssien keskiarvo näkyväksi.
