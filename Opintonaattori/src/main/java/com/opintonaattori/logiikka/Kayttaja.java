@@ -18,9 +18,11 @@ public class Kayttaja {
     private File tiedosto;
     private Tallentaja tallentaja;
     private Raporttikone raportti;
+    private double ka;
 
     public Kayttaja(String nimi) throws IOException {
         this.nimi = nimi;
+        this.ka = 0;
         this.kurssisuoritukset = new ArrayList<>();
         this.tiedosto = new File("src/resources/" + this.nimi + ".csv");
         this.tallentaja = new Tallentaja(this.tiedosto);
@@ -52,6 +54,14 @@ public class Kayttaja {
 //    }
     public String getNimi() {
         return this.nimi;
+    }
+    
+    public Double getKeskiarvo() {
+        int summa = 0;
+        for (Kurssisuoritus kurssisuoritus : kurssisuoritukset) {
+            summa = summa + kurssisuoritus.getArvosana();
+        }
+        return this.ka = summa / kurssisuoritukset.size();
     }
 
     /**

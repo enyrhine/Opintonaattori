@@ -43,8 +43,9 @@ public class LisaysKuuntelija implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         try {
             this.kayttaja.lisaaKurssisuoritus(this.lahde1.getText(), intMuunnin(this.lahde2), intMuunnin(this.lahde3));
-            this.kayttoliittyma.lisaaKurssi(this.kayttoliittyma.getFrame().getContentPane());
+            //this.kayttoliittyma.lisaaKurssi(this.kayttoliittyma.getFrame().getContentPane(), this.kayttoliittyma.getFrame().getContentPane().getLayout());
             this.kayttoliittyma.paivita(this.kayttoliittyma.getFrame().getContentPane());
+            this.kayttoliittyma.runAgain(50);
         } catch (IOException | NumberFormatException ex) {
             Logger.getLogger(LisaysKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
         }
