@@ -18,6 +18,7 @@ public class Main {
         elsa.lisaaKurssisuoritus("Ohja", 5, 5);
         //System.out.println(elsa.getTiedosto().length());
         elsa.lisaaKurssisuoritus("Ohpe", 5, 5);
+        elsa.lisaaKurssisuoritus("Ohpe", 5, 5);
         
         Kayttoliittyma kayttoliittyma = new Kayttoliittyma(elsa.getTiedosto(), elsa);
         SwingUtilities.invokeLater(kayttoliittyma);

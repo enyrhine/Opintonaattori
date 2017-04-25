@@ -40,7 +40,7 @@ public class Kayttaja {
      */
     public void lisaaKurssisuoritus(String nimi, int op, int arvosana) throws IOException {
         Kurssisuoritus kurssi = new Kurssisuoritus(nimi, op, arvosana);
-       // this.kurssisuoritukset.add(kurssi);
+        this.kurssisuoritukset.add(kurssi);
         this.tallentaja.lisaaKurssisuoritus(kurssi);
     }
 
@@ -72,6 +72,10 @@ public class Kayttaja {
             kaikkiKurssit.add(kurssiTiedot[0] + " " + kurssiTiedot[1] + " " + kurssiTiedot[2]);
         }
         return kaikkiKurssit;
+    }
+    
+    public List<Kurssisuoritus> getKurssisuorituksetList() {
+        return this.kurssisuoritukset;
     }
     
     public String tulostaKurssit(int i) {

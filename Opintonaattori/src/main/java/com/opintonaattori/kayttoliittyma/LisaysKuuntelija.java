@@ -1,6 +1,7 @@
 
 package com.opintonaattori.kayttoliittyma;
 import com.opintonaattori.logiikka.Kayttaja;
+import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -18,12 +19,16 @@ public class LisaysKuuntelija implements ActionListener {
     private JTextField lahde1;
     private JTextField lahde2;
     private JTextField lahde3;
+    private Kayttoliittyma kayttoliittyma;
+    private Container container;
     
-    public LisaysKuuntelija(Kayttaja kayttaja, JTextField lahde1, JTextField lahde2, JTextField lahde3) {
+    public LisaysKuuntelija(Kayttaja kayttaja, Kayttoliittyma kayttoliittyma, JTextField lahde1, JTextField lahde2, JTextField lahde3) {
         this.kayttaja = kayttaja;
         this.lahde1 = lahde1;
         this.lahde2 = lahde2;
         this.lahde3 = lahde3;
+        this.kayttoliittyma = kayttoliittyma;
+        //this.container = new Container();
     }
     
     /**
@@ -38,6 +43,8 @@ public class LisaysKuuntelija implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         try {
             this.kayttaja.lisaaKurssisuoritus(this.lahde1.getText(), intMuunnin(this.lahde2), intMuunnin(this.lahde3));
+            this.kayttoliittyma.lisaaKurssi(this.kayttoliittyma.getFrame().getContentPane());
+            this.kayttoliittyma.paivita(this.kayttoliittyma.getFrame().getContentPane());
         } catch (IOException | NumberFormatException ex) {
             Logger.getLogger(LisaysKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
         }

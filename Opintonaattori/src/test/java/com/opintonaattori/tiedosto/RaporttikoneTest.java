@@ -6,6 +6,8 @@
 package com.opintonaattori.tiedosto;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.After;
@@ -43,12 +45,15 @@ public class RaporttikoneTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-//    @Test
-//    public void raporttikoneLukeeTiedostonOikein() {
-//        File tiedosto = new File("moi");
-//        Raporttikone raportti = new Raporttikone(tiedosto);
-//        List<String> rivit = raportti.lueTiedosto();
-//        assertEquals("moi", rivit.get(0));
-//        //tiedosto.delete();
-//    }
+    @Test
+    public void raporttikoneLukeeTiedostonOikein() throws IOException {
+        File tiedosto = new File("src/resources/moi.csv");
+        FileWriter kirjoittaja = new FileWriter(tiedosto);
+        kirjoittaja.write("moi");
+        kirjoittaja.close();
+        Raporttikone raportti = new Raporttikone(tiedosto);
+        List<String> rivit = raportti.lueTiedosto();
+        assertEquals("moi", rivit.get(0));
+        //tiedosto.delete();
+    }
 }
