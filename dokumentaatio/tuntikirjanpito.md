@@ -11,3 +11,4 @@ Päivä | Tunnit | Kuvaus
 20.04.2017 | 6h | Kurssisuorituksen lisäys toimii, käyttöliittymän ulkoasua ja loput palautuksen jutut.
 25.04.2017 | 2h | Käyttöliittymän ulkoasu.
 25.04.2017 | 2h | Uuden kurssin lisäyksen korjaaminen käyttöliittymään, kurssien keskiarvo näkyväksi.
+25.04.2017 | 1h | Pohdintaa siitä kannattaako käyttöliittymässä muuttaa kurssien näyttäminen taulukoksi. Totesin ettei ole tämän harjoitustyön(tai sen valmistumisen) kannalta oleellista.
