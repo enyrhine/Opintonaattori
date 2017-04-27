@@ -45,6 +45,11 @@ public class Kurssisuoritus {
         this.op = op;
     }
     
+    /**
+     * Metodi palauttaa kurssisuorituksen halutussa tiedostoon tallennus -muodossa.
+     *
+     * @return String kurssisuorituksesta
+     */
     public String getKurssisuoritus() {
         return this.kurssi + "," + this.op + "," + this.arvosana;
     }

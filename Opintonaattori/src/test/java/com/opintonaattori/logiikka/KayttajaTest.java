@@ -44,9 +44,9 @@ public class KayttajaTest {
 
     @Test
     public void kurssisuorituksenLisaysOnnistuu() throws IOException {
-        int kurssisuorituksiaAluksi = testi.getKurssit().size();
+        int kurssisuorituksiaAluksi = testi.getKurssisuorituksetList().size();
         testi.lisaaKurssisuoritus("Ohja", 5, 5);
-        int kurssisuorituksiaLopuksi = testi.getKurssit().size();
+        int kurssisuorituksiaLopuksi = testi.getKurssisuorituksetList().size();
         assertEquals(kurssisuorituksiaAluksi + 1, kurssisuorituksiaLopuksi);
         this.testi.getTiedosto().delete();
     }

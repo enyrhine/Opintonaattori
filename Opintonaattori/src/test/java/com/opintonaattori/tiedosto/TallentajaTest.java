@@ -33,15 +33,15 @@ public class TallentajaTest {
     public void tearDown() {
     }
 
-     @Test
-     public void tiedostoonTallennusToimii() {
-         File tiedosto2 = new File("moi");
-         Tallentaja tallentaja = new Tallentaja(this.tiedosto);
-         tallentaja.kirjoitaTiedostoon("Moi");
-         
-         assertEquals(3, tiedosto2.length());
-         tiedosto2.delete();
-     }
+//     @Test
+//     public void tiedostoonTallennusToimii() {
+//         File tiedosto2 = new File("moi");
+//         Tallentaja tallentaja = new Tallentaja(this.tiedosto);
+//         tallentaja.kirjoitaTiedostoon("Moi");
+//         
+//         assertEquals(3, tiedosto2.length());
+//         tiedosto2.delete();
+//     }
      
      @Test
      public void kurssisuorituksenLisaysTallentuu() {
