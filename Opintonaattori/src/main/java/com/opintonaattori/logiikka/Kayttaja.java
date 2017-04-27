@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.io.FileUtils;
 
 /**
  * Luokka tarjoaa käyttäjän henkilökohtaisten kurssisuoritusten lisäyksiin
@@ -21,11 +20,9 @@ public class Kayttaja {
     private Raporttikone raportti;
     private double ka;
     private int opintopisteet;
-    private FileUtils utils;
 
     public Kayttaja(String nimi) throws IOException {
         this.nimi = nimi;
-        this.utils = new FileUtils();
         this.ka = 0;
         this.opintopisteet = 0;
         this.kurssisuoritukset = new ArrayList<>();
@@ -40,6 +37,8 @@ public class Kayttaja {
         } else {
             this.kurssisuoritukset = this.raportti.lueKurssisuoritukset();
         }
+        
+        System.out.println(this.raportti.getTiedostonKoko());
         
     }
 
@@ -94,31 +93,31 @@ public class Kayttaja {
         return summa;
     }
 
-//    /**
-//     * Metodi hakee kaikki tiedostossa olevat kurssit ja palauttaa ne listana jolla Stringinä kurssin tiedot.
-//     *
-//     * @see com.opintonaattori.tiedosto.Raporttikone#lueTiedosto()
-//     * @see com.opintonaattori.tiedosto.Raporttikone#lueRivit(int)
-//     *
-//     * @return ArrayListin kursseista
-//     *
-//     */
-//    public ArrayList<String> getKurssit() {
-//        ArrayList<String> kaikkiKurssit = new ArrayList<>();
-//        if (this.kurssisuoritukset.size() > 0) {
-//            for (Kurssisuoritus kurssisuoritus : this.kurssisuoritukset) {
-//                kaikkiKurssit.add(kurssisuoritus.getNimi() + " " + kurssisuoritus.getOp() + " " + kurssisuoritus.getArvosana());
+    /**
+     * Metodi hakee kaikki tiedostossa olevat kurssit ja palauttaa ne listana jolla Stringinä kurssin tiedot.
+     *
+     * @see com.opintonaattori.tiedosto.Raporttikone#lueTiedosto()
+     * @see com.opintonaattori.tiedosto.Raporttikone#lueRivit(int)
+     *
+     * @return ArrayListin kursseista
+     *
+     */
+    public ArrayList<String> getKurssit() {
+        ArrayList<String> kaikkiKurssit = new ArrayList<>();
+        if (this.kurssisuoritukset.size() > 0) {
+            for (Kurssisuoritus kurssisuoritus : this.kurssisuoritukset) {
+                kaikkiKurssit.add(kurssisuoritus.getNimi() + " " + kurssisuoritus.getOp() + " " + kurssisuoritus.getArvosana());
+            }
+        }
+//        
+//        if (!this.raportti.lueTiedosto().isEmpty()) {
+//            for (int i = 0; i < this.raportti.lueTiedosto().size(); i++) {
+//                String[] kurssiTiedot = this.raportti.lueRivit(i);
+//                kaikkiKurssit.add(kurssiTiedot[0] + " " + kurssiTiedot[1] + " " + kurssiTiedot[2]);
 //            }
 //        }
-////        
-////        if (!this.raportti.lueTiedosto().isEmpty()) {
-////            for (int i = 0; i < this.raportti.lueTiedosto().size(); i++) {
-////                String[] kurssiTiedot = this.raportti.lueRivit(i);
-////                kaikkiKurssit.add(kurssiTiedot[0] + " " + kurssiTiedot[1] + " " + kurssiTiedot[2]);
-////            }
-////        }
-//        return kaikkiKurssit;
-//    }
+        return kaikkiKurssit;
+    }
 
     public List<Kurssisuoritus> getKurssisuorituksetList() {
         return this.kurssisuoritukset;

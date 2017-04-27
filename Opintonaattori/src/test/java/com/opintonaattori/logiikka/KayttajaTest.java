@@ -11,27 +11,13 @@ import static org.junit.Assert.*;
 
 public class KayttajaTest {
 
-    private Kayttaja testi;
+    private final Kayttaja testi;
 
     public KayttajaTest() throws IOException {
         this.testi = new Kayttaja("testi");
+        testi.lisaaKurssisuoritus("Ohpe", 5, 5);
+        testi.lisaaKurssisuoritus("Tira", 5, 3);
         
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
     }
 
     @Test
@@ -39,7 +25,6 @@ public class KayttajaTest {
         Kayttaja kayttaja = new Kayttaja("Malla");
         String nimi = kayttaja.getNimi();
         assertEquals("Malla", nimi);
-        kayttaja.getTiedosto().delete();
     }
 
     @Test
@@ -48,26 +33,16 @@ public class KayttajaTest {
         testi.lisaaKurssisuoritus("Ohja", 5, 5);
         int kurssisuorituksiaLopuksi = testi.getKurssisuorituksetList().size();
         assertEquals(kurssisuorituksiaAluksi + 1, kurssisuorituksiaLopuksi);
-        this.testi.getTiedosto().delete();
     }
     
-//    @Test
-//    public void getKurssisuoritusByNameToimii() throws IOException {
-//        testi.lisaaKurssisuoritus("Ohja", 5, 5);
-//        testi.lisaaKurssisuoritus("Ohpe", 5, 5);
-//        String nimi = testi.getKurssisuoritusByName("Ohja");
-//        assertEquals("Ohja", nimi);
-//    }
-//    
-//    @Test
-//    public void getKurssisuoritusByNameEiToimi() throws IOException {
-//        testi.lisaaKurssisuoritus("Tira", 5, 5);
-//        testi.lisaaKurssisuoritus("Ohpe", 5, 5);
-//        String nimi = testi.getKurssisuoritusByName("Ohja");
-//        assertEquals(null, nimi);
-//    }
+    @Test
+    public void testGetKeskiarvo() throws IOException {
+        Double a = 4.0;
+        assertEquals(a, this.testi.getKeskiarvo());
+    }
     
-//    @Test
-//    public void 
-
+    @Test
+    public void testGetOpintopisteet() throws IOException {
+        assertEquals(10, this.testi.getOpintopisteet());
+    }
 }
