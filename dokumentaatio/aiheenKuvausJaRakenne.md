@@ -13,3 +13,6 @@ Tiedostojen hallinta tapahtuu Rapottikone ja Tallentaja -luokissa, joissa tiedos
 
 ### Sekvenssikaavio
 ![Alt text](https://github.com/enyrhine/Opintonaattori/blob/master/dokumentaatio/Sekvenssi_java.png "Sekvenssikaavio")
+
+## Käyttöohje:
+Uuden käyttäjän luonnin jälkeen, ohjelman avautuessa käyttöliittymän näkymä on tyhjä, siinä voit lisätä uuden kurssisuorituksen, joka tulee heti näkyviin. Näkymästä näet myös suoritettujen kurssien opintopisteet ja arvosanojen keskiarvot.
