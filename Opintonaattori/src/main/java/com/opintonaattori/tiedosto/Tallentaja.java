@@ -10,7 +10,7 @@ import java.io.FileWriter;
 public class Tallentaja {
 
     //private FileWriter kirjoittaja;
-    private final File kayttajanTiedosto;
+    private File kayttajanTiedosto;
     
 
     public Tallentaja(File kayttaja) {

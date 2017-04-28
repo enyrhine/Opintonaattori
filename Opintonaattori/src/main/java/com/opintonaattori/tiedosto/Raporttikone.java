@@ -69,10 +69,7 @@ public class Raporttikone {
      * @return Kurssisuoritukset listana
      */
     public List<Kurssisuoritus> lueKurssisuoritukset() {
-        System.out.println("moi");
-        System.out.println(this.tiedostonKoko);
         if (this.tiedostonKoko > 0 && lueRivi(0) != null) {
-            System.out.println("HALOO");
             for (int i = 0; i < this.tiedostonKoko; i++) {
                 Kurssisuoritus kurssi = new Kurssisuoritus(lueRivi(i)[0], Integer.parseInt(lueRivi(i)[1]), Integer.parseInt(lueRivi(i)[2]));
                 this.kurssisuoritukset.add(kurssi);

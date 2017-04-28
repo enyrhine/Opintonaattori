@@ -23,22 +23,16 @@ public class Kayttaja {
 
     public Kayttaja(String nimi) throws IOException {
         this.nimi = nimi;
+        this.tiedosto = new File("src/resources/" + this.nimi + ".csv");
         this.ka = 0;
         this.opintopisteet = 0;
         this.kurssisuoritukset = new ArrayList<>();
-//        if (!this.tiedosto.isDirectory()) {
-        this.tiedosto = new File("src/resources/" + this.nimi + ".csv");
-
         this.tallentaja = new Tallentaja(this.tiedosto);
         this.raportti = new Raporttikone(this.tiedosto);
-        //this.raportti.lueKurssisuoritukset();
-        if (this.raportti.getTiedostonKoko() == 0) {
-            this.kurssisuoritukset = new ArrayList<>();
-        } else {
+        this.kurssisuoritukset = new ArrayList<>();
+        if (this.raportti.getTiedostonKoko() > 0) {
             this.kurssisuoritukset = this.raportti.lueKurssisuoritukset();
         }
-        
-        System.out.println(this.raportti.getTiedostonKoko());
         
     }
 
@@ -119,6 +113,11 @@ public class Kayttaja {
         return kaikkiKurssit;
     }
 
+    public void setKurssisuorituksetList() {
+        this.kurssisuoritukset.clear();
+        this.kurssisuoritukset = this.raportti.lueKurssisuoritukset();
+    }
+    
     public List<Kurssisuoritus> getKurssisuorituksetList() {
         return this.kurssisuoritukset;
     }

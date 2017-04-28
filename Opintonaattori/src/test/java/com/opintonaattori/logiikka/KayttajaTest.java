@@ -2,6 +2,7 @@ package com.opintonaattori.logiikka;
 
 import com.opintonaattori.logiikka.Kayttaja;
 import java.io.IOException;
+import java.io.PrintWriter;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -11,13 +12,11 @@ import static org.junit.Assert.*;
 
 public class KayttajaTest {
 
-    private final Kayttaja testi;
+    private static Kayttaja testi;
 
     public KayttajaTest() throws IOException {
-        this.testi = new Kayttaja("testi");
-        testi.lisaaKurssisuoritus("Ohpe", 5, 5);
-        testi.lisaaKurssisuoritus("Tira", 5, 3);
-        
+        testi = new Kayttaja("testi");
+
     }
 
     @Test
@@ -34,15 +33,28 @@ public class KayttajaTest {
         int kurssisuorituksiaLopuksi = testi.getKurssisuorituksetList().size();
         assertEquals(kurssisuorituksiaAluksi + 1, kurssisuorituksiaLopuksi);
     }
-    
+
     @Test
     public void testGetKeskiarvo() throws IOException {
-        Double a = 4.0;
+        Double a = 5.0;
         assertEquals(a, this.testi.getKeskiarvo());
     }
-    
+
     @Test
     public void testGetOpintopisteet() throws IOException {
-        assertEquals(10, this.testi.getOpintopisteet());
+//        PrintWriter writer = new PrintWriter(this.testi.getTiedosto());
+//        writer.print("");
+//        writer.close();
+        this.testi.lisaaKurssisuoritus("Testing", 10, 5);
+        this.testi.setKurssisuorituksetList();
+        System.out.println(this.testi.getKurssisuorituksetList());
+        int i = this.testi.getOpintopisteet();
+        assertEquals(i, this.testi.getOpintopisteet());
+    }
+
+    @AfterClass
+    public static void tearDown() {
+        testi.getTiedosto().delete();
+        
     }
 }

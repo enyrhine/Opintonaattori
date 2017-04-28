@@ -13,7 +13,7 @@ import javax.swing.SwingUtilities;
 public class Main {
     
     public static void main(String[] args) throws IOException {
-        Kayttaja opintona = new Kayttaja("miksi");
+        Kayttaja opintona = new Kayttaja("Tyhjä");
         //Kayttaja elsa = new Kayttaja("Elsa");
         //Tallentaja elsanTallentaja = new Tallentaja(elsa.getTiedosto());
 //        elsa.lisaaKurssisuoritus("Ohja", 5, 5);

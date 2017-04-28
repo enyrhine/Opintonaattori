@@ -17,6 +17,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
 /**
@@ -25,8 +26,8 @@ import javax.swing.WindowConstants;
 public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
-    private final File tiedosto;
-    private final Kayttaja kayttaja;
+    private File tiedosto;
+    private Kayttaja kayttaja;
     private int korkeus;
 
     public Kayttoliittyma(File tiedosto, Kayttaja kayttaja) {
@@ -53,6 +54,7 @@ public class Kayttoliittyma implements Runnable {
      * @param i antaa halutun sivun korkeuden
      */
     public void runAgain(int i) {
+        frame.setVisible(false);
         this.korkeus = this.korkeus + i;
         frame = new JFrame(kayttaja.getNimi());
         //frame.setPreferredSize(new Dimension(1000, this.korkeus));
