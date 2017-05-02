@@ -88,6 +88,8 @@ public class Kayttoliittyma implements Runnable {
         container.add(arvosana);
         container.add(lisaa);
         container.add(new JLabel(" "));
+        container.add(new JLabel(" "));
+        container.add(new JLabel(" "));
     }
 
     /**
@@ -117,27 +119,27 @@ public class Kayttoliittyma implements Runnable {
      */
     public void paivita(Container container) {
         int j = this.kayttaja.getKurssisuorituksetList().size();
-        GridLayout layout = new GridLayout(j + 3, 4);
+        GridLayout layout = new GridLayout(j + 4, 4);
         container.setLayout(layout);
-//
-//        JLabel kurssi = new JLabel("Kurssin nimi, opintopisteet, arvosana: ");
-//            container.add(kurssi);
-//            JLabel nimi = new JLabel(this.kayttaja.tulostaKurssinNimi(this.kayttaja.getKurssit().size()-1));
-//            container.add(nimi);
-//            JLabel opintopiste = new JLabel(this.kayttaja.tulostaKurssinOpintopisteet(this.kayttaja.getKurssit().size()-1));
-//            container.add(opintopiste);
-//            JLabel arvosana = new JLabel(this.kayttaja.tulostaKurssinArvosana(this.kayttaja.getKurssit().size()-1));
-//            container.add(arvosana);
+        JLabel tyhja = new JLabel("");
+                JLabel kurssi = new JLabel("Kurssin nimi:");
+                JLabel opt = new JLabel("Opintopisteet: ");
+                JLabel arvosanat = new JLabel("Arvosanat: ");
+                container.add(kurssi);
+                container.add(opt);
+                container.add(arvosanat);
+                container.add(tyhja);
+                
         if (this.kayttaja.getKurssisuorituksetList().size() > 0) {
             for (int i = 0; i < this.kayttaja.getKurssisuorituksetList().size(); i++) {
-                JLabel kurssi = new JLabel("Kurssin nimi, opintopisteet, arvosana: ");
-                container.add(kurssi);
+                
                 JLabel nimi = new JLabel(this.kayttaja.tulostaKurssinNimi(i));
                 container.add(nimi);
                 JLabel opintopiste = new JLabel(this.kayttaja.tulostaKurssinOpintopisteet(i));
                 container.add(opintopiste);
                 JLabel arvosana = new JLabel(this.kayttaja.tulostaKurssinArvosana(i));
                 container.add(arvosana);
+                container.add(new JLabel(" "));
             }
         }
 

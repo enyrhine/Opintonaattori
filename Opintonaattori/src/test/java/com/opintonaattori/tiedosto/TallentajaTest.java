@@ -11,29 +11,14 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class TallentajaTest {
-    private File tiedosto;
+    private static File tiedosto;
     private Raporttikone raportti;
     
     public TallentajaTest() {
-        this.tiedosto = new File("moi");
+        tiedosto = new File("moi");
         this.raportti = new Raporttikone(tiedosto);
     }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
+  
 
 //     @Test
 //     public void tiedostoonTallennusToimii() {
@@ -53,4 +38,10 @@ public class TallentajaTest {
 //         assertEquals("Ohja,5,5", this.raportti.lueKurssisuoritukset());
 //         teksti.delete();
 //     }
+    
+    @AfterClass
+    public static void tearDown() {
+        tiedosto.delete();
+        
+    }
 }

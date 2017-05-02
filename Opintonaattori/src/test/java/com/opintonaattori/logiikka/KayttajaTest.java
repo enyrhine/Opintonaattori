@@ -37,6 +37,7 @@ public class KayttajaTest {
     @Test
     public void testGetKeskiarvo() throws IOException {
         Double a = 5.0;
+        testi.lisaaKurssisuoritus("Ohja", 5, 5);
         assertEquals(a, this.testi.getKeskiarvo());
     }
 

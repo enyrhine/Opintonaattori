@@ -24,36 +24,20 @@ import static org.junit.Assert.*;
  * @author elsanyrhinen
  */
 public class RaporttikoneTest {
-    private File tiedosto;
+    //private static File tiedosto;
     private Raporttikone raportti;
-    private Kayttaja elsa;
+    private static Kayttaja elsa;
     
     public RaporttikoneTest() throws IOException {
-       this.tiedosto = new File("src/resources/moi.csv");
-       this.raportti = new Raporttikone(tiedosto);
-       this.elsa = new Kayttaja("Elsa");
+       //tiedosto = new File("src/resources/moi.csv");
+       elsa = new Kayttaja("Elsa");
+       raportti = new Raporttikone(elsa.getTiedosto());
+       
     }
 
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
     @Test
     public void raporttikoneLukeeTiedostonOikein() throws IOException {
-        try (FileWriter kirjoittaja = new FileWriter(tiedosto)) {
+        try (FileWriter kirjoittaja = new FileWriter(elsa.getTiedosto())) {
             kirjoittaja.write("moi");
             kirjoittaja.close();
         }
@@ -65,20 +49,29 @@ public class RaporttikoneTest {
     
     @Test
     public void testLueRivi() throws IOException {
-        try (FileWriter kirjoittaja = new FileWriter(tiedosto)) {
+        try (FileWriter kirjoittaja = new FileWriter(elsa.getTiedosto())) {
             kirjoittaja.write("Ohja,4,5");
             kirjoittaja.close();
         }
-        assertEquals("Ohja", this.raportti.lueRivi(0)[0]);
+        assertEquals("Ohja", raportti.lueRivi(0)[0]);
     }
     
     @Test
     public void testLueKurssisuoritukset() throws IOException {
-         try (FileWriter kirjoittaja = new FileWriter(tiedosto)) {
+         elsa.lisaaKurssisuoritus("Ohja", 4, 5);
+         try (FileWriter kirjoittaja = new FileWriter(elsa.getTiedosto())) {
             kirjoittaja.write("Ohja,4,5");
+           
             kirjoittaja.close();
         }
-        assertEquals("Ohja", this.raportti.lueKurssisuoritukset().get(0).getNimi());
+        assertEquals("Ohja", raportti.lueKurssisuoritukset().get(0).getNimi());
+    }
+    
+    @AfterClass
+    public static void tearDown() {
+        
+        elsa.getTiedosto().delete();
+        
     }
     
 }
