@@ -17,6 +17,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
 /**
@@ -32,38 +33,41 @@ public class Kayttoliittyma implements Runnable {
     public Kayttoliittyma(File tiedosto, Kayttaja kayttaja) {
         this.tiedosto = tiedosto;
         this.kayttaja = kayttaja;
-        this.korkeus = 150;
+        this.korkeus = 800;
     }
 
     @Override
     public void run() {
         frame = new JFrame(kayttaja.getNimi());
-        frame.setPreferredSize(new Dimension(1000, this.korkeus));
+        //frame.setPreferredSize(new Dimension(1000, this.korkeus));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         luoKomponentit(frame.getContentPane());
 
-        
         frame.pack();
         frame.setVisible(true);
     }
-    
+
+    /**
+     * Metodi luo uuden päivitetyn ikkunan.
+     *
+     * @param i antaa halutun sivun korkeuden
+     */
     public void runAgain(int i) {
+        frame.setVisible(false);
         this.korkeus = this.korkeus + i;
         frame = new JFrame(kayttaja.getNimi());
-        frame.setPreferredSize(new Dimension(1000, this.korkeus));
-
+        //frame.setPreferredSize(new Dimension(1000, this.korkeus));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         luoKomponentit(frame.getContentPane());
-
-        
         frame.pack();
         frame.setVisible(true);
     }
 
     private void luoKomponentit(Container container) {
         paivita(container);
-
+        JLabel opintopisteet = new JLabel("Opintopisteet: ");
+        JLabel opintoPisteet = new JLabel(this.kayttaja.getOpintopisteet() + "");
         JLabel keskiArvo = new JLabel("Arvosanojen keskiarvo: ");
         JLabel keskiarvo = new JLabel(this.kayttaja.getKeskiarvo().toString());
         JLabel uusiKurssi = new JLabel("Lisää uusi kurssisuoritus: ");
@@ -71,28 +75,29 @@ public class Kayttoliittyma implements Runnable {
         JTextField op = new JTextField("Opintopisteet");
         JTextField arvosana = new JTextField("Arvosana");
         JButton lisaa = new JButton("Lisää kurssisuoritus");
-
         setLisayskuuntelija(kurssinNimi, op, arvosana, lisaa);
+        container.add(opintopisteet);
+        container.add(opintoPisteet);
         container.add(keskiArvo);
         container.add(keskiarvo);
-        container.add(new JLabel(" "));
-        container.add(new JLabel(" "));
+        //container.add(new JLabel(" "));
+        //container.add(new JLabel(" "));
         container.add(uusiKurssi);
         container.add(kurssinNimi);
         container.add(op);
         container.add(arvosana);
         container.add(lisaa);
-
+        container.add(new JLabel(" "));
     }
 
     /**
-     * Metodi luo uuden lisayskuuntelijan ja asettaa sen arvoiksi halutut
-     * kurssin parametrit.
+     * Metodi luo uuden lisayskuuntelijan ja asettaa sen arvoiksi halutut kurssin parametrit.
      *
      * @param kurssinNimi annettu JTextField
      * @param op annettu JTextField
      * @param arvosana annettu JTextField
      * @param lisaa annettu JButton
+     * @return palauttaa olion lisaysKuuntelija 
      *
      * @see
      * com.opintonaattori.kayttoliittyma.LisaysKuuntelija#actionPerformed(java.awt.event.ActionEvent)
@@ -104,25 +109,40 @@ public class Kayttoliittyma implements Runnable {
         lisaysKuuntelija.actionPerformed(tapahtuma);
         return lisaysKuuntelija;
     }
-    
-    public void paivita(Container container) {
-        int j = this.kayttaja.getKurssit().size();
-        GridLayout layout = new GridLayout(j+3, 4);
-        container.setLayout(layout);
 
-        for (int i = 0; i < this.kayttaja.getKurssit().size(); i++) {
-            JLabel kurssi = new JLabel("Kurssin nimi, opintopisteet, arvosana: ");
-            container.add(kurssi);
-            JLabel nimi = new JLabel(this.kayttaja.tulostaKurssinNimi(i));
-            container.add(nimi);
-            JLabel opintopiste = new JLabel(this.kayttaja.tulostaKurssinOpintopisteet(i));
-            container.add(opintopiste);
-            JLabel arvosana = new JLabel(this.kayttaja.tulostaKurssinArvosana(i));
-            container.add(arvosana);
+    /**
+     * Metodi päivittää kurssien tiedot käyttöliittymälle.
+     * 
+     * @param container
+     */
+    public void paivita(Container container) {
+        int j = this.kayttaja.getKurssisuorituksetList().size();
+        GridLayout layout = new GridLayout(j + 3, 4);
+        container.setLayout(layout);
+//
+//        JLabel kurssi = new JLabel("Kurssin nimi, opintopisteet, arvosana: ");
+//            container.add(kurssi);
+//            JLabel nimi = new JLabel(this.kayttaja.tulostaKurssinNimi(this.kayttaja.getKurssit().size()-1));
+//            container.add(nimi);
+//            JLabel opintopiste = new JLabel(this.kayttaja.tulostaKurssinOpintopisteet(this.kayttaja.getKurssit().size()-1));
+//            container.add(opintopiste);
+//            JLabel arvosana = new JLabel(this.kayttaja.tulostaKurssinArvosana(this.kayttaja.getKurssit().size()-1));
+//            container.add(arvosana);
+        if (this.kayttaja.getKurssisuorituksetList().size() > 0) {
+            for (int i = 0; i < this.kayttaja.getKurssisuorituksetList().size(); i++) {
+                JLabel kurssi = new JLabel("Kurssin nimi, opintopisteet, arvosana: ");
+                container.add(kurssi);
+                JLabel nimi = new JLabel(this.kayttaja.tulostaKurssinNimi(i));
+                container.add(nimi);
+                JLabel opintopiste = new JLabel(this.kayttaja.tulostaKurssinOpintopisteet(i));
+                container.add(opintopiste);
+                JLabel arvosana = new JLabel(this.kayttaja.tulostaKurssinArvosana(i));
+                container.add(arvosana);
+            }
         }
+
     }
-    
-    
+
 //    public JTextField lisaaKurssi(Container container, LayoutManager layout) {
 //        JLabel kurssi = new JLabel("Kurssin nimi, opintopisteet, arvosana: ");
 //            container.add(kurssi);
@@ -142,7 +162,6 @@ public class Kayttoliittyma implements Runnable {
 //        
 //        return this.kayttaja.getKurssit().toString();
 //    }
-
     public JFrame getFrame() {
         return frame;
     }

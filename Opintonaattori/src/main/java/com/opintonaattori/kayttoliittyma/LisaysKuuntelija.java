@@ -20,7 +20,6 @@ public class LisaysKuuntelija implements ActionListener {
     private JTextField lahde2;
     private JTextField lahde3;
     private Kayttoliittyma kayttoliittyma;
-    private Container container;
     
     public LisaysKuuntelija(Kayttaja kayttaja, Kayttoliittyma kayttoliittyma, JTextField lahde1, JTextField lahde2, JTextField lahde3) {
         this.kayttaja = kayttaja;
@@ -28,7 +27,6 @@ public class LisaysKuuntelija implements ActionListener {
         this.lahde2 = lahde2;
         this.lahde3 = lahde3;
         this.kayttoliittyma = kayttoliittyma;
-        //this.container = new Container();
     }
     
     /**
@@ -55,6 +53,7 @@ public class LisaysKuuntelija implements ActionListener {
      * Metodi muuttaa saadun tekstikentän arvon kokonaisluvuksi.
      *
      * @param a muunnettavaksi haluttu JTextField
+     * @return annettu JTextFiel:n saama arvo kokonaislukuna
      *
      */
     public int intMuunnin(JTextField a) {

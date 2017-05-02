@@ -19,23 +19,30 @@ public class Kayttaja {
     private Tallentaja tallentaja;
     private Raporttikone raportti;
     private double ka;
+    private int opintopisteet;
 
     public Kayttaja(String nimi) throws IOException {
         this.nimi = nimi;
-        this.ka = 0;
-        this.kurssisuoritukset = new ArrayList<>();
         this.tiedosto = new File("src/resources/" + this.nimi + ".csv");
+        this.ka = 0;
+        this.opintopisteet = 0;
+        this.kurssisuoritukset = new ArrayList<>();
         this.tallentaja = new Tallentaja(this.tiedosto);
         this.raportti = new Raporttikone(this.tiedosto);
+        this.kurssisuoritukset = new ArrayList<>();
+        if (this.raportti.getTiedostonKoko() > 0) {
+            this.kurssisuoritukset = this.raportti.lueKurssisuoritukset();
+        }
+        
     }
 
     /**
-     * Metodi lisää käyttäjälle uuden kurssisuorituksen arvosanoineen ja
-     * opintopisteineen.
+     * Metodi lisää käyttäjälle uuden kurssisuorituksen arvosanoineen ja opintopisteineen.
      *
      * @param nimi Käyttäjän antama kurssin nimi
      * @param op Käyttäjän antama opintopistemäärä
      * @param arvosana Käyttäjän antama arvosana
+     * @throws java.io.IOException
      *
      * @see
      * com.opintonaattori.tiedosto.Tallentaja#lisaaKurssisuoritus(com.opintonaattori.logiikka.Kurssisuoritus)
@@ -45,73 +52,123 @@ public class Kayttaja {
         this.kurssisuoritukset.add(kurssi);
         this.tallentaja.lisaaKurssisuoritus(kurssi);
     }
-
-//    
-//    public void printKurssit() {
-//        for (Kurssisuoritus kurssi : this.kurssisuoritukset) {
-//            System.out.println(kurssi);
-//        }
-//    }
+    
     public String getNimi() {
         return this.nimi;
     }
-    
+
+    /**
+     * Metodi palauttaa kaikkien kurssien keskiarvot.
+     *
+     * @return keskiarvo double 
+     */
     public Double getKeskiarvo() {
         int summa = 0;
         for (Kurssisuoritus kurssisuoritus : kurssisuoritukset) {
             summa = summa + kurssisuoritus.getArvosana();
         }
-        return this.ka = summa / kurssisuoritukset.size();
+        if (kurssisuoritukset.size() > 0) {
+            return this.ka = summa / kurssisuoritukset.size();
+        }
+        return 0.0;
+    }
+    
+    /**
+     * Metodi palauttaa kaikkien kurssien opintopisteet yhteenlaskettuna.
+     *
+     * @return summa opintopisteistä 
+     */
+    public int getOpintopisteet() {
+        int summa = 0;
+        for (Kurssisuoritus kurssisuoritus : kurssisuoritukset) {
+            summa = summa + kurssisuoritus.getOp();
+        }
+        
+        return summa;
     }
 
     /**
      * Metodi hakee kaikki tiedostossa olevat kurssit ja palauttaa ne listana jolla Stringinä kurssin tiedot.
      *
-     * @see 
-     * com.opintonaattori.tiedosto.Raporttikone#lueTiedosto() 
-     * @see 
-     * com.opintonaattori.tiedosto.Raporttikone#lueRivit(int) 
-     * 
+     * @see com.opintonaattori.tiedosto.Raporttikone#lueTiedosto()
+     * @see com.opintonaattori.tiedosto.Raporttikone#lueRivit(int)
+     *
      * @return ArrayListin kursseista
      *
      */
     public ArrayList<String> getKurssit() {
         ArrayList<String> kaikkiKurssit = new ArrayList<>();
-        for (int i = 0; i < this.raportti.lueTiedosto().size(); i++) {
-            String[] kurssiTiedot = this.raportti.lueRivit(i);
-            kaikkiKurssit.add(kurssiTiedot[0] + " " + kurssiTiedot[1] + " " + kurssiTiedot[2]);
+        if (this.kurssisuoritukset.size() > 0) {
+            for (Kurssisuoritus kurssisuoritus : this.kurssisuoritukset) {
+                kaikkiKurssit.add(kurssisuoritus.getNimi() + " " + kurssisuoritus.getOp() + " " + kurssisuoritus.getArvosana());
+            }
         }
+//        
+//        if (!this.raportti.lueTiedosto().isEmpty()) {
+//            for (int i = 0; i < this.raportti.lueTiedosto().size(); i++) {
+//                String[] kurssiTiedot = this.raportti.lueRivit(i);
+//                kaikkiKurssit.add(kurssiTiedot[0] + " " + kurssiTiedot[1] + " " + kurssiTiedot[2]);
+//            }
+//        }
         return kaikkiKurssit;
+    }
+
+    public void setKurssisuorituksetList() {
+        this.kurssisuoritukset.clear();
+        this.kurssisuoritukset = this.raportti.lueKurssisuoritukset();
     }
     
     public List<Kurssisuoritus> getKurssisuorituksetList() {
         return this.kurssisuoritukset;
     }
-    
-    public String tulostaKurssit(int i) {
-        return getKurssit().get(i);
-    }
-    
+
+//    public String tulostaKurssit(int i) {
+//        return getKurssit().get(i);
+//    }
+
+    /**
+     * Metodi tulostaa kurssin nimen.
+     *
+     * @param i kurssisuorituksen indeksi
+     * @return nimen palautus 
+     */
     public String tulostaKurssinNimi(int i) {
-        return getKurssi(i)[0];
+        return getKurssi(i).getNimi();
     }
-    
+
+    /**
+     * Metodi tulostaa kurssin opintopisteet.
+     *
+     * @param i kurssisuorituksen indeksi
+     * @return opintopisteiden palautus Stringinä
+     */
     public String tulostaKurssinOpintopisteet(int i) {
-        return getKurssi(i)[1];
+        return getKurssi(i).getOp() + "";
     }
-    
+
+    /**
+     * Metodi tulostaa kurssin arvosanan.
+     *
+     * @param i kurssisuorituksen indeksi
+     * @return arvosanan palautus Stringinä
+     */
     public String tulostaKurssinArvosana(int i) {
-        return getKurssi(i)[2];
+        return getKurssi(i).getArvosana() + "";
     }
 
     public File getTiedosto() {
         return this.tiedosto;
     }
-    
-    public String[] getKurssi(int i) {
-        return this.raportti.lueRivit(i);
+
+    /**
+     * Metodi hakee kurssisuorituksen annetun indeksin perusteella.
+     *
+     * @param i kurssisuorituksen indeksi
+     * @return Kurssisuoritus 
+     */
+    public Kurssisuoritus getKurssi(int i) {
+        return this.kurssisuoritukset.get(i);
     }
-    
 
     //Kommentoitu ulos turhia tai ei toiminnallisuutta sisältäviä metodeja, palataan myöhemmin näihin.
 //

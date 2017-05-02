@@ -21,18 +21,19 @@
 <a class="jxr_linenumber" name="L13" href="#L13">13</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../com/opintonaattori/main/Main.html">Main</a> {
 <a class="jxr_linenumber" name="L14" href="#L14">14</a>      
 <a class="jxr_linenumber" name="L15" href="#L15">15</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String[] args) <strong class="jxr_keyword">throws</strong> IOException {
-<a class="jxr_linenumber" name="L16" href="#L16">16</a>          <a href="../../../com/opintonaattori/logiikka/Kayttaja.html">Kayttaja</a> elsa = <strong class="jxr_keyword">new</strong> <a href="../../../com/opintonaattori/logiikka/Kayttaja.html">Kayttaja</a>(<span class="jxr_string">"Elsa"</span>);
-<a class="jxr_linenumber" name="L17" href="#L17">17</a>          <em class="jxr_comment">//Tallentaja elsanTallentaja = new Tallentaja(elsa.getTiedosto());</em>
-<a class="jxr_linenumber" name="L18" href="#L18">18</a>          elsa.lisaaKurssisuoritus(<span class="jxr_string">"Ohja"</span>, 5, 5);
-<a class="jxr_linenumber" name="L19" href="#L19">19</a>          <em class="jxr_comment">//System.out.println(elsa.getTiedosto().length());</em>
-<a class="jxr_linenumber" name="L20" href="#L20">20</a>          elsa.lisaaKurssisuoritus(<span class="jxr_string">"Ohpe"</span>, 5, 5);
-<a class="jxr_linenumber" name="L21" href="#L21">21</a>          
-<a class="jxr_linenumber" name="L22" href="#L22">22</a>          <a href="../../../com/opintonaattori/kayttoliittyma/Kayttoliittyma.html">Kayttoliittyma</a> kayttoliittyma = <strong class="jxr_keyword">new</strong> <a href="../../../com/opintonaattori/kayttoliittyma/Kayttoliittyma.html">Kayttoliittyma</a>(elsa.getTiedosto(), elsa);
-<a class="jxr_linenumber" name="L23" href="#L23">23</a>          SwingUtilities.invokeLater(kayttoliittyma);
-<a class="jxr_linenumber" name="L24" href="#L24">24</a>      }
-<a class="jxr_linenumber" name="L25" href="#L25">25</a>     
-<a class="jxr_linenumber" name="L26" href="#L26">26</a>      
-<a class="jxr_linenumber" name="L27" href="#L27">27</a>  }
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>          <a href="../../../com/opintonaattori/logiikka/Kayttaja.html">Kayttaja</a> opintona = <strong class="jxr_keyword">new</strong> <a href="../../../com/opintonaattori/logiikka/Kayttaja.html">Kayttaja</a>(<span class="jxr_string">"miksi"</span>);
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>          <em class="jxr_comment">//Kayttaja elsa = new Kayttaja("Elsa");</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>          <em class="jxr_comment">//Tallentaja elsanTallentaja = new Tallentaja(elsa.getTiedosto());</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_comment">//        elsa.lisaaKurssisuoritus("Ohja", 5, 5);</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>          <em class="jxr_comment">//System.out.println(elsa.getTiedosto().length());</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_comment">//        elsa.lisaaKurssisuoritus("Ohpe", 5, 5);</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_comment">//        elsa.lisaaKurssisuoritus("Ohpe", 5, 5);</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>          <a href="../../../com/opintonaattori/kayttoliittyma/Kayttoliittyma.html">Kayttoliittyma</a> kayttoliittyma = <strong class="jxr_keyword">new</strong> <a href="../../../com/opintonaattori/kayttoliittyma/Kayttoliittyma.html">Kayttoliittyma</a>(opintona.getTiedosto(), opintona);
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>          SwingUtilities.invokeLater(kayttoliittyma);
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>      }
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>     
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>      
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2017. All rights reserved.</div>

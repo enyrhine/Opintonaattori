@@ -9,36 +9,36 @@ import java.io.FileWriter;
  */
 public class Tallentaja {
 
-    private FileWriter kirjoittaja;
+    //private FileWriter kirjoittaja;
     private File kayttajanTiedosto;
     
 
     public Tallentaja(File kayttaja) {
-        try {
-            this.kirjoittaja = new FileWriter(kayttaja);
-        } catch (Exception e) {
-            System.out.println("Virhe!!" + e.getMessage());
-        }
+//        try {
+//            this.kirjoittaja = new FileWriter(kayttaja);
+//        } catch (Exception e) {
+//            System.out.println("Virhe!!" + e.getMessage());
+//        }
         this.kayttajanTiedosto = kayttaja;
      
 
     }
-
-    /**
-     * Metodi kirjoittaa tiedostoon käyttäjän haluaman tekstin.
-     *
-     * @param teksti Käyttäjän antama teksti
-     *
-     */
-    public void kirjoitaTiedostoon(String teksti) {
-        try {
-            this.kirjoittaja.write(teksti);
-            this.kirjoittaja.close();
-        } catch (Exception e) {
-            System.out.println("Virhe tiedostoon kirjoittamisessa: " + e.getMessage());
-        }
-        
-    }
+//
+//    /**
+//     * Metodi kirjoittaa tiedostoon käyttäjän haluaman tekstin.
+//     *
+//     * @param teksti Käyttäjän antama teksti
+//     *
+//     */
+//    public void kirjoitaTiedostoon(String teksti) {
+//        try {
+//            this.kirjoittaja.write(teksti);
+//            this.kirjoittaja.close();
+//        } catch (Exception e) {
+//            System.out.println("Virhe tiedostoon kirjoittamisessa: " + e.getMessage());
+//        }
+//        
+//    }
 
     /**
      * Metodi lisää käyttäjälle uuden kurssisuorituksen.

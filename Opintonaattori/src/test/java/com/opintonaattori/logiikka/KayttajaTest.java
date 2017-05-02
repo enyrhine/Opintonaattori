@@ -2,6 +2,7 @@ package com.opintonaattori.logiikka;
 
 import com.opintonaattori.logiikka.Kayttaja;
 import java.io.IOException;
+import java.io.PrintWriter;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -11,27 +12,11 @@ import static org.junit.Assert.*;
 
 public class KayttajaTest {
 
-    private Kayttaja testi;
+    private static Kayttaja testi;
 
     public KayttajaTest() throws IOException {
-        this.testi = new Kayttaja("testi");
-        
-    }
+        testi = new Kayttaja("testi");
 
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
     }
 
     @Test
@@ -39,35 +24,37 @@ public class KayttajaTest {
         Kayttaja kayttaja = new Kayttaja("Malla");
         String nimi = kayttaja.getNimi();
         assertEquals("Malla", nimi);
-        kayttaja.getTiedosto().delete();
     }
 
     @Test
     public void kurssisuorituksenLisaysOnnistuu() throws IOException {
-        int kurssisuorituksiaAluksi = testi.getKurssit().size();
+        int kurssisuorituksiaAluksi = testi.getKurssisuorituksetList().size();
         testi.lisaaKurssisuoritus("Ohja", 5, 5);
-        int kurssisuorituksiaLopuksi = testi.getKurssit().size();
+        int kurssisuorituksiaLopuksi = testi.getKurssisuorituksetList().size();
         assertEquals(kurssisuorituksiaAluksi + 1, kurssisuorituksiaLopuksi);
-        this.testi.getTiedosto().delete();
     }
-    
-//    @Test
-//    public void getKurssisuoritusByNameToimii() throws IOException {
-//        testi.lisaaKurssisuoritus("Ohja", 5, 5);
-//        testi.lisaaKurssisuoritus("Ohpe", 5, 5);
-//        String nimi = testi.getKurssisuoritusByName("Ohja");
-//        assertEquals("Ohja", nimi);
-//    }
-//    
-//    @Test
-//    public void getKurssisuoritusByNameEiToimi() throws IOException {
-//        testi.lisaaKurssisuoritus("Tira", 5, 5);
-//        testi.lisaaKurssisuoritus("Ohpe", 5, 5);
-//        String nimi = testi.getKurssisuoritusByName("Ohja");
-//        assertEquals(null, nimi);
-//    }
-    
-//    @Test
-//    public void 
 
+    @Test
+    public void testGetKeskiarvo() throws IOException {
+        Double a = 5.0;
+        assertEquals(a, this.testi.getKeskiarvo());
+    }
+
+    @Test
+    public void testGetOpintopisteet() throws IOException {
+//        PrintWriter writer = new PrintWriter(this.testi.getTiedosto());
+//        writer.print("");
+//        writer.close();
+        this.testi.lisaaKurssisuoritus("Testing", 10, 5);
+        this.testi.setKurssisuorituksetList();
+        System.out.println(this.testi.getKurssisuorituksetList());
+        int i = this.testi.getOpintopisteet();
+        assertEquals(i, this.testi.getOpintopisteet());
+    }
+
+    @AfterClass
+    public static void tearDown() {
+        testi.getTiedosto().delete();
+        
+    }
 }

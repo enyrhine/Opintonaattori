@@ -12,9 +12,11 @@ import static org.junit.Assert.*;
 
 public class TallentajaTest {
     private File tiedosto;
+    private Raporttikone raportti;
     
     public TallentajaTest() {
         this.tiedosto = new File("moi");
+        this.raportti = new Raporttikone(tiedosto);
     }
     
     @BeforeClass
@@ -33,22 +35,22 @@ public class TallentajaTest {
     public void tearDown() {
     }
 
-     @Test
-     public void tiedostoonTallennusToimii() {
-         File tiedosto2 = new File("moi");
-         Tallentaja tallentaja = new Tallentaja(this.tiedosto);
-         tallentaja.kirjoitaTiedostoon("Moi");
-         
-         assertEquals(3, tiedosto2.length());
-         tiedosto2.delete();
-     }
-     
-     @Test
-     public void kurssisuorituksenLisaysTallentuu() {
-         File teksti = new File("testi");
-         Tallentaja tallentaja = new Tallentaja(teksti);
-         tallentaja.lisaaKurssisuoritus(new Kurssisuoritus("Ohja", 5, 5));
-         assertEquals(9, teksti.length());
-         teksti.delete();
-     }
+//     @Test
+//     public void tiedostoonTallennusToimii() {
+//         File tiedosto2 = new File("moi");
+//         Tallentaja tallentaja = new Tallentaja(this.tiedosto);
+//         tallentaja.kirjoitaTiedostoon("Moi");
+//         
+//         assertEquals(3, tiedosto2.length());
+//         tiedosto2.delete();
+//     }
+//     
+//     @Test
+//     public void kurssisuorituksenLisaysTallentuu() {
+//         File teksti = new File("testi");
+//         Tallentaja tallentaja = new Tallentaja(teksti);
+//         tallentaja.lisaaKurssisuoritus(new Kurssisuoritus("Ohja", 5, 5));
+//         assertEquals("Ohja,5,5", this.raportti.lueKurssisuoritukset());
+//         teksti.delete();
+//     }
 }
