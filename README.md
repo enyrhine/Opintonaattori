@@ -6,5 +6,5 @@ Ohjelma näyttää sinulle suorittamasi kurssit, laskee niiden arvosanoista kesk
 ## Dokumentaatio
 * [Linkki aihekuvaukseen](https://github.com/enyrhine/Opintonaattori/blob/master/dokumentaatio/aiheenKuvausJaRakenne.md)
 * [Linkki tuntikirjanpitoon](https://github.com/enyrhine/Opintonaattori/blob/master/dokumentaatio/tuntikirjanpito.md)
-* [Linkki pit-raporttiin](https://htmlpreview.github.io/?https://github.com/enyrhine/Opintonaattori/blob/master/dokumentaatio/pit/201704210017/index.html)
+* [Linkki pit-raporttiin](https://htmlpreview.github.io/?https://github.com/enyrhine/Opintonaattori/blob/master/dokumentaatio/pit/201705042235/index.html)
 * [Linkki checkstyle-raporttiin](https://htmlpreview.github.io/?https://github.com/enyrhine/Opintonaattori/blob/master/dokumentaatio/checkstyle/site/checkstyle.html)
