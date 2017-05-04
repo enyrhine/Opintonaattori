@@ -1,8 +1,8 @@
 ## Aihe: 
-Opintojen seurantajärjestelmä, jonka avulla opiskelija pystyy seuraamaan opiskelujensa etenemistä lisäämällä kursseja kandi- tai maisterivaiheeseen, tarkastelemaan opintopisteitään sekä näkemään suoritettujen kurssien arvosanat.
+Opintojen seurantajärjestelmä, jonka avulla opiskelija pystyy seuraamaan opiskelujensa etenemistä lisäämällä kursseja, tarkastelemaan opintopisteitään sekä näkemään suoritettujen kurssien arvosanat.
 
-### Opiskelijan toiminnot: 
-kurssin ja sen tietojen lisäys
+### Käyttäjän toiminnot: 
+kurssin ja sen tietojen lisäys.
 
 ### Luokkakaavio
 ![Alt text](https://github.com/enyrhine/Opintonaattori/blob/master/dokumentaatio/Java_luokkakaavio2.png "Luokkakaavio")
@@ -15,4 +15,4 @@ Tiedostojen hallinta tapahtuu Rapottikone ja Tallentaja -luokissa, joissa tiedos
 ![Alt text](https://github.com/enyrhine/Opintonaattori/blob/master/dokumentaatio/Sekvenssi_java.png "Sekvenssikaavio")
 
 ## Käyttöohje:
-Uuden käyttäjän luonnin jälkeen, ohjelman avautuessa käyttöliittymän näkymä on tyhjä, siinä voit lisätä uuden kurssisuorituksen, joka tulee heti näkyviin uuteen ikkunaan. Näkymästä näet myös suoritettujen kurssien opintopisteet ja arvosanojen keskiarvot.
+Uuden käyttäjän luonnin jälkeen, ohjelman avautuessa käyttöliittymän näkymä on tyhjä ja valmis uuden kurssin lisäystä varten. Lomakkeella pystyt lisäämään uuden kurssisuorituksen. Kurssisuorituksen tietoihin vaaditaan kurssin nimi, opintopisteiden määrä ja arvosana. Uuden suorituksen lisäyksen jälkeen näkymä päivittyy ja uusi suoritus tulee näkyviin. Näkymästä näet myös suoritettujen kurssien yhteenlasketut opintopisteet ja arvosanojen keskiarvot.
