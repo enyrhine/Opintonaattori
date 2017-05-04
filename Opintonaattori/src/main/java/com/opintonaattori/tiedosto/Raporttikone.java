@@ -7,7 +7,8 @@ import java.util.List;
 import org.apache.commons.io.FileUtils;
 
 /**
- * Luokka tarjoaa tiedoston lukemiseen tarvittavia metodeja, vaatii vielä toiminnallisuutta.
+ * Luokka tarjoaa tiedoston lukemiseen tarvittavia metodeja, vaatii vielä
+ * toiminnallisuutta.
  */
 public class Raporttikone {
 
@@ -19,15 +20,13 @@ public class Raporttikone {
         this.tiedosto = tiedosto;
         this.kurssisuoritukset = new ArrayList<>();
         this.tiedostonKoko = lueTiedosto().size();
-        
-        
 
     }
 
     public void setTiedostonKoko() {
         this.tiedostonKoko = lueTiedosto().size();
     }
-    
+
     public int getTiedostonKoko() {
         return this.tiedostonKoko;
     }
@@ -42,13 +41,14 @@ public class Raporttikone {
         try {
             tiedostonRivit = FileUtils.readLines(this.tiedosto, "utf-8");
         } catch (Exception e) {
-            System.out.println("Virhe!!" + e.getMessage());
+            tiedostonRivit.add("Virhe!!" + e.getMessage());
         }
         return tiedostonRivit;
     }
 
     /**
-     * Metodi lukee lueTiedosto() antaman listan rivin, eli yhden kurssin tiedot, erottaa tiedot pilkulla ja lisää ne taulukkoon.
+     * Metodi lukee lueTiedosto() antaman listan rivin, eli yhden kurssin
+     * tiedot, erottaa tiedot pilkulla ja lisää ne taulukkoon.
      *
      * @param i halutun rivin numero
      * @return kurssisuorituksen tiedot taulukkona
@@ -58,13 +58,11 @@ public class Raporttikone {
             return lueTiedosto().get(i).split(",");
         }
         return null;
-//        for (String string : rivit) {
-//           return string.split(",");
-//        }
     }
 
     /**
-     * Metodi lukee kurssisuoritusten tiedot tiedostosta, muuttaa ne Kurssisuorituksiksi ja lisää listalle.
+     * Metodi lukee kurssisuoritusten tiedot tiedostosta, muuttaa ne
+     * Kurssisuorituksiksi ja lisää listalle.
      *
      * @return Kurssisuoritukset listana
      */
@@ -75,9 +73,6 @@ public class Raporttikone {
                 this.kurssisuoritukset.add(kurssi);
             }
         }
-//        if (this.kurssisuoritukset.size() > 0) {
-//            return null;
-//        }
         return this.kurssisuoritukset;
     }
 

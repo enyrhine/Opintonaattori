@@ -21,18 +21,30 @@ public class Kayttaja {
     private double ka;
     private int opintopisteet;
 
-    public Kayttaja(String nimi) throws IOException {
+    /**
+     * Luokka luo käyttäjän jonka avulla hallitaan kurssien lisäystä.
+     *
+     * @param nimi kertoo käyttäjän nimen, josta muodostuu tiedoston nimi
+     * 
+     */
+    public Kayttaja(String nimi) {
         this.nimi = nimi;
         this.tiedosto = new File("src/resources/" + this.nimi + ".csv");
         this.ka = 0;
         this.opintopisteet = 0;
         this.kurssisuoritukset = new ArrayList<>();
+        
         this.tallentaja = new Tallentaja(this.tiedosto);
         this.raportti = new Raporttikone(this.tiedosto);
-        this.kurssisuoritukset = new ArrayList<>();
-        if (this.raportti.getTiedostonKoko() > 0) {
+       
+        try {
             this.kurssisuoritukset = this.raportti.lueKurssisuoritukset();
+        } catch (Exception e) {
+             this.kurssisuoritukset = new ArrayList<>();
         }
+//        if (this.raportti.getTiedostonKoko() > 0) {
+//            this.kurssisuoritukset = this.raportti.lueKurssisuoritukset();
+//        }
         
     }
 

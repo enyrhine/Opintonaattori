@@ -24,15 +24,20 @@ import static org.junit.Assert.*;
  * @author elsanyrhinen
  */
 public class RaporttikoneTest {
-    //private static File tiedosto;
+
     private Raporttikone raportti;
     private static Kayttaja elsa;
-    
+
     public RaporttikoneTest() throws IOException {
-       //tiedosto = new File("src/resources/moi.csv");
-       elsa = new Kayttaja("Elsa");
-       raportti = new Raporttikone(elsa.getTiedosto());
-       
+        elsa = new Kayttaja("Elsa");
+        raportti = new Raporttikone(elsa.getTiedosto());
+
+    }
+
+    @Test
+    public void testRaporttikoneLuodaanOikein() {
+        Raporttikone kone = new Raporttikone(new File("src/resources/raporttikoneTest.csv"));
+        assertEquals(1, kone.getTiedostonKoko());
     }
 
     @Test
@@ -41,12 +46,12 @@ public class RaporttikoneTest {
             kirjoittaja.write("moi");
             kirjoittaja.close();
         }
-       
+
         List<String> rivit = raportti.lueTiedosto();
         assertEquals("moi", rivit.get(0));
-        
+
     }
-    
+
     @Test
     public void testLueRivi() throws IOException {
         try (FileWriter kirjoittaja = new FileWriter(elsa.getTiedosto())) {
@@ -55,23 +60,23 @@ public class RaporttikoneTest {
         }
         assertEquals("Ohja", raportti.lueRivi(0)[0]);
     }
-    
+
     @Test
     public void testLueKurssisuoritukset() throws IOException {
-         elsa.lisaaKurssisuoritus("Ohja", 4, 5);
-         try (FileWriter kirjoittaja = new FileWriter(elsa.getTiedosto())) {
+        elsa.lisaaKurssisuoritus("Ohja", 4, 5);
+        try (FileWriter kirjoittaja = new FileWriter(elsa.getTiedosto())) {
             kirjoittaja.write("Ohja,4,5");
-           
+
             kirjoittaja.close();
         }
         assertEquals("Ohja", raportti.lueKurssisuoritukset().get(0).getNimi());
     }
-    
+
     @AfterClass
     public static void tearDown() {
-        
+
         elsa.getTiedosto().delete();
-        
+
     }
-    
+
 }

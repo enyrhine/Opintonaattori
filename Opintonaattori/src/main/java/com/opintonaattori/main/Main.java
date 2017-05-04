@@ -8,12 +8,12 @@ import java.io.IOException;
 import javax.swing.SwingUtilities;
 
 /**
- * Ohjelman käyttöliittymän testaukseen.
+ * Ohjelman käyttöliittymän luomiseen.
  */
 public class Main {
     
     public static void main(String[] args) throws IOException {
-        Kayttaja opintona = new Kayttaja("Tyhjä");
+        Kayttaja opintona = new Kayttaja("uusi");
         //Kayttaja elsa = new Kayttaja("Elsa");
         //Tallentaja elsanTallentaja = new Tallentaja(elsa.getTiedosto());
 //        elsa.lisaaKurssisuoritus("Ohja", 5, 5);
