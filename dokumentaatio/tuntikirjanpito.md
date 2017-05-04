@@ -13,3 +13,6 @@ Päivä | Tunnit | Kuvaus
 25.04.2017 | 2h | Uuden kurssin lisäyksen korjaaminen käyttöliittymään, kurssien keskiarvo näkyväksi.
 25.04.2017 | 1h | Pohdintaa siitä kannattaako käyttöliittymässä muuttaa kurssien näyttäminen taulukoksi. Totesin ettei ole tämän harjoitustyön(tai sen valmistumisen) kannalta oleellista.
 27.04.2017 | 8h | Käyttöliittymän hiomista, tiedostojen tallennus oikeanlaiseksi, vanhan tiedoston tiedot säilyvät, paljon tappelua erroreiden kanssa. Ja palautuksen vaatimat testit, javadoc jne.
+02.05.2017 | 2h | Testien korjailua.
+04.05.2017 | 3h | Palautuksen hiomista.
+04.05.2017 | 3h | Palautuksen hiomista.
