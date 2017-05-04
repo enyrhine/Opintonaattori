@@ -38,7 +38,6 @@ public class Kayttoliittyma implements Runnable {
      * @param kayttaja antaa käyttäjän
      *
      */
-    
     public Kayttoliittyma(File tiedosto, Kayttaja kayttaja) {
         this.tiedosto = tiedosto;
         this.kayttaja = kayttaja;
@@ -89,8 +88,6 @@ public class Kayttoliittyma implements Runnable {
         container.add(opintoPisteet);
         container.add(keskiArvo);
         container.add(keskiarvo);
-        //container.add(new JLabel(" "));
-        //container.add(new JLabel(" "));
         container.add(uusiKurssi);
         container.add(kurssinNimi);
         container.add(op);
@@ -155,25 +152,6 @@ public class Kayttoliittyma implements Runnable {
 
     }
 
-//    public JTextField lisaaKurssi(Container container, LayoutManager layout) {
-//        JLabel kurssi = new JLabel("Kurssin nimi, opintopisteet, arvosana: ");
-//            container.add(kurssi);
-//            JLabel nimi = new JLabel(this.kayttaja.tulostaKurssinNimi(this.kayttaja.getKurssit().size()-1));
-//            container.add(nimi);
-//            JLabel opintopiste = new JLabel(this.kayttaja.tulostaKurssinOpintopisteet(this.kayttaja.getKurssit().size()-1));
-//            container.add(opintopiste);
-//            JLabel arvosana = new JLabel(this.kayttaja.tulostaKurssinArvosana(this.kayttaja.getKurssit().size()-1));
-//            container.add(arvosana);
-//            container.setLayout(layout);
-//            
-//        return null;
-//    }
-//    
-//    @Override
-//    public String toString() {
-//        
-//        return this.kayttaja.getKurssit().toString();
-//    }
     public JFrame getFrame() {
         return frame;
     }
