@@ -12,6 +12,6 @@ Ohjelma näyttää sinulle suorittamasi kurssit, laskee niiden arvosanoista kesk
 * [Linkki aihekuvaukseen](https://github.com/enyrhine/Opintonaattori/blob/master/dokumentaatio/aiheenKuvausJaRakenne.md)
 sisältää käyttöohjeet sekä luokka- ja sekvenssikaaviot.
 * [Linkki tuntikirjanpitoon](https://github.com/enyrhine/Opintonaattori/blob/master/dokumentaatio/tuntikirjanpito.md)
-
+* [Linkki testausdokumenttiin](https://github.com/enyrhine/Opintonaattori/blob/master/dokumentaatio/testausdokumentti.md)
 
 
