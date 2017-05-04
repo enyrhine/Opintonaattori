@@ -15,6 +15,9 @@ Tiedostojen hallinta tapahtuu Rapottikone ja Tallentaja -luokissa, joissa tiedos
 ![Alt text](https://github.com/enyrhine/Opintonaattori/blob/master/dokumentaatio/sekvenssi2.png "Sekvenssikaavio")
 
 
+
+
+
 ![Alt text](https://github.com/enyrhine/Opintonaattori/blob/master/dokumentaatio/Sekvenssi_java.png "Sekvenssikaavio")
 
 ## Käyttöohje:
