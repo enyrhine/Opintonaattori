@@ -13,18 +13,15 @@ import static org.junit.Assert.*;
 public class TallentajaTest {
 
     private static Kayttaja elsa;
-    //private static File tiedosto;
-    //private Raporttikone raportti;
 
     public TallentajaTest() {
         elsa = new Kayttaja("Elsa");
-        //tiedosto = new File("moi");
-        //this.raportti = new Raporttikone(tiedosto);
     }
 
     @Test
     public void testTallentajaHakeeKayttajan() {
         Kayttaja maija = new Kayttaja("Maija");
+        maija.tyhjennaKurssit();
         Tallentaja tallentaja = new Tallentaja(maija.getTiedosto());
         tallentaja.lisaaKurssisuoritus(new Kurssisuoritus("Otm", 5, 5));
         assertEquals(8, maija.getTiedosto().length());
