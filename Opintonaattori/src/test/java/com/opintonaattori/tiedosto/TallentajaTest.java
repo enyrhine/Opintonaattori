@@ -24,7 +24,7 @@ public class TallentajaTest {
 
     @Test
     public void testTallentajaHakeeKayttajan() {
-        Kayttaja maija = new Kayttaja ("Maija");
+        Kayttaja maija = new Kayttaja("Maija");
         Tallentaja tallentaja = new Tallentaja(maija.getTiedosto());
         tallentaja.lisaaKurssisuoritus(new Kurssisuoritus("Otm", 5, 5));
         assertEquals(8, maija.getTiedosto().length());
@@ -41,7 +41,6 @@ public class TallentajaTest {
     @AfterClass
     public static void tearDown() {
         elsa.getTiedosto().delete();
-        
 
     }
 }

@@ -20,10 +20,57 @@ public class KayttajaTest {
     }
 
     @Test
+    public void testGetNimi() {
+        assertEquals("testi", testi.getNimi());
+    }
+
+    @Test
     public void konstruktoriAsettaaNimenOikein() throws IOException {
         Kayttaja kayttaja = new Kayttaja("Malla");
         String nimi = kayttaja.getNimi();
         assertEquals("Malla", nimi);
+    }
+
+    @Test
+    public void testGetKeskiarvo() throws IOException {
+        Double a = 5.0;
+        testi.tyhjennaKurssit();
+        testi.lisaaKurssisuoritus("Ohja", 5, 5);
+        assertEquals(a, testi.getKeskiarvo());
+    }
+
+    @Test
+    public void testGetOpintopisteet() throws IOException {
+        testi.lisaaKurssisuoritus("Testing", 10, 5);
+        testi.setKurssisuorituksetList();
+        System.out.println(testi.getKurssisuorituksetList());
+        int i = testi.getOpintopisteet();
+        assertEquals(i, testi.getOpintopisteet());
+    }
+
+    @Test
+    public void testGetKurssisuorituksetList() {
+        assertEquals(0, testi.getKurssisuorituksetList().size());
+    }
+
+    @Test
+    public void testTulostaKurssinNimi() throws IOException {
+        Kayttaja testiKayttaja = new Kayttaja("Testi");
+        testiKayttaja.lisaaKurssisuoritus("Testi", 1, 1);
+        assertEquals("Testi", testiKayttaja.tulostaKurssinNimi(0));
+        testiKayttaja.getTiedosto().delete();
+    }
+
+    @Test
+    public void testTulostaKurssinOp() throws IOException {
+        testi.lisaaKurssisuoritus("Tira", 1, 1);
+        assertEquals("1", testi.tulostaKurssinOpintopisteet(testi.getKurssisuorituksetList().size() - 1));
+    }
+
+    @Test
+    public void testTulostaKurssinArvosana() throws IOException {
+        testi.lisaaKurssisuoritus("Tira", 1, 1);
+        assertEquals("1", testi.tulostaKurssinArvosana(testi.getKurssisuorituksetList().size() - 1));
     }
 
     @Test
@@ -35,27 +82,14 @@ public class KayttajaTest {
     }
 
     @Test
-    public void testGetKeskiarvo() throws IOException {
-        Double a = 5.0;
-        testi.lisaaKurssisuoritus("Ohja", 5, 5);
-        assertEquals(a, this.testi.getKeskiarvo());
-    }
-
-    @Test
-    public void testGetOpintopisteet() throws IOException {
-//        PrintWriter writer = new PrintWriter(this.testi.getTiedosto());
-//        writer.print("");
-//        writer.close();
-        this.testi.lisaaKurssisuoritus("Testing", 10, 5);
-        this.testi.setKurssisuorituksetList();
-        System.out.println(this.testi.getKurssisuorituksetList());
-        int i = this.testi.getOpintopisteet();
-        assertEquals(i, this.testi.getOpintopisteet());
+    public void testTyhjennaKurssit() {
+        testi.tyhjennaKurssit();
+        assertEquals(0, testi.getKurssisuorituksetList().size());
     }
 
     @AfterClass
     public static void tearDown() {
         testi.getTiedosto().delete();
-        
+
     }
 }

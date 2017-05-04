@@ -7,8 +7,7 @@ import java.util.List;
 import org.apache.commons.io.FileUtils;
 
 /**
- * Luokka tarjoaa tiedoston lukemiseen tarvittavia metodeja, vaatii vielä
- * toiminnallisuutta.
+ * Luokka tarjoaa tiedoston lukemiseen tarvittavia metodeja.
  */
 public class Raporttikone {
 
@@ -16,6 +15,12 @@ public class Raporttikone {
     private List<Kurssisuoritus> kurssisuoritukset;
     private int tiedostonKoko;
 
+    /**
+     * Luokka tiedoston lukemiseen.
+     *
+     * @param tiedosto antaa raporttikoneelle halutun tiedoston
+     *
+     */
     public Raporttikone(File tiedosto) {
         this.tiedosto = tiedosto;
         this.kurssisuoritukset = new ArrayList<>();
@@ -23,6 +28,11 @@ public class Raporttikone {
 
     }
 
+    /**
+     * Metodi asettaa tiedostolle uuden koon tiedoston pohjalta rakennetun
+     * listan sen hetkisen koon mukaan.
+     *
+     */
     public void setTiedostonKoko() {
         this.tiedostonKoko = lueTiedosto().size();
     }

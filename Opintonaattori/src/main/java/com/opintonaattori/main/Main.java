@@ -1,4 +1,3 @@
-
 package com.opintonaattori.main;
 
 import com.opintonaattori.logiikka.Kayttaja;
@@ -11,18 +10,18 @@ import javax.swing.SwingUtilities;
  * Ohjelman käyttöliittymän luomiseen.
  */
 public class Main {
-    
+
+    /**
+     * Luokka hallitsee ohjelmaa, luo käyttöliittymän ja näyttää sen käyttäjälle.
+     *
+     * @param args taulukko
+     * @throws java.io.IOException ei käsittele exceptionia
+     *
+     */
     public static void main(String[] args) throws IOException {
-        Kayttaja opintona = new Kayttaja("uusi");
-        //Kayttaja elsa = new Kayttaja("Elsa");
-        //Tallentaja elsanTallentaja = new Tallentaja(elsa.getTiedosto());
-//        elsa.lisaaKurssisuoritus("Ohja", 5, 5);
-        //System.out.println(elsa.getTiedosto().length());
-//        elsa.lisaaKurssisuoritus("Ohpe", 5, 5);
-//        elsa.lisaaKurssisuoritus("Ohpe", 5, 5);
-        Kayttoliittyma kayttoliittyma = new Kayttoliittyma(opintona.getTiedosto(), opintona);
+        Kayttaja uusiKayttaja = new Kayttaja("Kurssini");
+        Kayttoliittyma kayttoliittyma = new Kayttoliittyma(uusiKayttaja.getTiedosto(), uusiKayttaja);
         SwingUtilities.invokeLater(kayttoliittyma);
     }
-   
-    
+
 }

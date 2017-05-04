@@ -54,7 +54,7 @@ public class KurssisuoritusTest {
         int arvosana = testi.getArvosana();
         assertEquals(4, arvosana);
     }
-    
+
     @Test
     public void metodiAsettaaArvosananOikein() {
         Kurssisuoritus testi = new Kurssisuoritus("Ohja", 4, 5);
@@ -62,7 +62,7 @@ public class KurssisuoritusTest {
         int arvosana = testi.getArvosana();
         assertEquals(5, arvosana);
     }
-    
+
     @Test
     public void metodiAsettaaOpOikein() {
         Kurssisuoritus testi = new Kurssisuoritus("Tira", 4, 8);
@@ -70,7 +70,7 @@ public class KurssisuoritusTest {
         int op = testi.getOp();
         assertEquals(10, op);
     }
-    
+
     @Test
     public void metodiAsettaaTutkinnonOikein() {
         Kurssisuoritus testi = new Kurssisuoritus("Tira", 4, 8);

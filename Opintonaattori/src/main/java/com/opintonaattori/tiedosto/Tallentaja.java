@@ -10,11 +10,15 @@ import java.io.FileWriter;
 public class Tallentaja {
 
     private File kayttajanTiedosto;
-    
 
+    /**
+     * Luokka tiedostoon tallentamiseen.
+     *
+     * @param kayttaja antaa luokalle tiedoston
+     *
+     */
     public Tallentaja(File kayttaja) {
         this.kayttajanTiedosto = kayttaja;
-     
 
     }
 
@@ -32,6 +36,5 @@ public class Tallentaja {
             System.out.println("Virhe tiedostoon kirjoittamisessa: " + e.getMessage());
         }
     }
-    
-    
+
 }
