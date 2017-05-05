@@ -16,3 +16,4 @@ Päivä | Tunnit | Kuvaus
 02.05.2017 | 2h | Testien korjailua.
 04.05.2017 | 3h | Palautuksen hiomista.
 04.05.2017 | 3h | Palautuksen hiomista.
+05.05.2017 | 1h | Palautuksen hiomista.
